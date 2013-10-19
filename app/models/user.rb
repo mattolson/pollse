@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
+  
+  after_create :add_signup_points
     
   def points
     self.point_transactions.sum(:points) + self.responses.count
@@ -22,5 +24,10 @@ class User < ActiveRecord::Base
 
   def guest?
     self.email.end_with?('@example.com')
+  end
+  
+  def add_signup_points
+    # TODO: Figure out how the guest user works in this workflow??
+    PointTransaction.transact!(self, :sign_up)
   end
 end

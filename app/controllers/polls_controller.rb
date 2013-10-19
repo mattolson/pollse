@@ -21,6 +21,8 @@ class PollsController < ApplicationController
     @poll = current_or_guest_user.polls.build(params[:poll])
     
     if @poll.save
+      PointTransaction.transact!(current_or_guest_user, :standard_poll)
+      
       redirect_to @poll, notice: 'Poll was successfully created.'
     else
       render action: "new"
