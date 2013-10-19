@@ -21,6 +21,7 @@ Pollse::Application.routes.draw do
 
   resources :questions
 
-  devise_for :users
-  ActiveAdmin.routes(self)
+  resources :users
+
+  devise_for :users, :path => 'account'
 end
