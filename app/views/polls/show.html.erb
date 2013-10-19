@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @poll.user %>
+</p>
+
+<p>
+  <b>Question:</b>
+  <%= @poll.question %>
+</p>
+
+<p>
+  <b>Start at:</b>
+  <%= @poll.start_at %>
+</p>
+
+<p>
+  <b>End at:</b>
+  <%= @poll.end_at %>
+</p>
+
+<p>
+  <b>Response limit:</b>
+  <%= @poll.response_limit %>
+</p>
+
+<p>
+  <b>Featured:</b>
+  <%= @poll.featured %>
+</p>
+
+<p>
+  <b>Distribute:</b>
+  <%= @poll.distribute %>
+</p>
+
+<p>
+  <b>Vanity:</b>
+  <%= @poll.vanity %>
+</p>
+
+<p>
+  <b>Reveal results:</b>
+  <%= @poll.reveal_results %>
+</p>
+
+
+<%= link_to 'Edit', edit_poll_path(@poll) %> |
+<%= link_to 'Back', polls_path %>

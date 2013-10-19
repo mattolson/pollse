@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question:</b>
+  <%= @category_assignment.question %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @category_assignment.category %>
+</p>
+
+
+<%= link_to 'Edit', edit_category_assignment_path(@category_assignment) %> |
+<%= link_to 'Back', category_assignments_path %>
