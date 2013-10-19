@@ -1,1 +1,34 @@
-<h1>Thanks for voting!</h1>
+<h1 class="question"><%= poll.question.body %></h1>
+<div class="results">
+  <div class="graph" id="results_graph_<%= poll.id %>"></div>
+  <div class="legend" id="legend_<%= poll.id %>"></div>
+</div>
+<p class="thanks">Thanks for voting!</p>
+
+<script>
+  var palette = new Rickshaw.Color.Palette();
+  var response_values = <%= poll.question.question_options.map(&:response_value).to_json.html_safe %>;
+  var metrics = <%= poll.metrics.to_json.html_safe %>;
+  var series = [];
+  for (var i = 0; i < metrics.length; i++) {
+    series.push({
+      name: metrics[i].question,
+      data: [{x: 0, y: metrics[i].count}],
+      color: palette.color()
+    });
+  }
+
+  var graph = new Rickshaw.Graph({
+    element: document.querySelector("#results_graph_<%= poll.id %>"),
+    renderer: 'bar',
+    series: series
+  });
+
+  graph.renderer.unstack = true;
+  graph.render();
+
+  var legend = new Rickshaw.Graph.Legend({
+    graph: graph,
+    element: document.querySelector('#legend_<%= poll.id %>')
+  });
+</script>

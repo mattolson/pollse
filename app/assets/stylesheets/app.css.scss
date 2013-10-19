@@ -1,0 +1,32 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1.question {
+  font-size: 48px;
+  margin-bottom: 1em;
+}
+
+div.poll {
+  text-align: center;
+}
+
+div.results {
+  position: relative;
+  div.graph {
+    float: left;
+    width: 75%;
+  }
+  div.legend {
+    float: left;
+    margin-left: 1em;
+  }
+}
+
+p.thanks {
+  font-style: italic;
+  font-size: 1.5em;
+  clear: both;
+  padding-top: 1em;
+}
+

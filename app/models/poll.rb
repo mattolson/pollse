@@ -39,4 +39,10 @@ class Poll < ActiveRecord::Base
     
     true
   end
+
+  def metrics
+    self.question.question_options.map do |option|
+      {:question => option.response_value, :count => self.responses.where(:value => option.response_value).count}
+    end
+  end
 end

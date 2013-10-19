@@ -10,18 +10,6 @@
  *
  *= require custom_bootstrap/custom_bootstrap
  *= require rickshaw
- *= require_self
+ *= require app
  */
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto Slab', serif;
-}
-
-h1.question {
-  font-size: 48px;
-  margin-bottom: 1em;
-}
-
-div.poll {
-  text-align: center;
-}
