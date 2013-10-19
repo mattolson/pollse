@@ -1,4 +1,22 @@
 Pollse::Application.routes.draw do
+  resources :category_assignments
+
+
+  resources :categories
+
+
+  resources :responses
+
+
+  resources :polls
+
+
+  resources :question_options
+
+
+  resources :questions
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,53 @@
+<%= form_for(@poll) do |f| %>
+  <% if @poll.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@poll.errors.count, "error") %> prohibited this poll from being saved:</h2>
+
+      <ul>
+      <% @poll.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </div>
+  <div class="field">
+    <%= f.label :start_at %><br />
+    <%= f.datetime_select :start_at %>
+  </div>
+  <div class="field">
+    <%= f.label :end_at %><br />
+    <%= f.datetime_select :end_at %>
+  </div>
+  <div class="field">
+    <%= f.label :response_limit %><br />
+    <%= f.number_field :response_limit %>
+  </div>
+  <div class="field">
+    <%= f.label :featured %><br />
+    <%= f.check_box :featured %>
+  </div>
+  <div class="field">
+    <%= f.label :distribute %><br />
+    <%= f.check_box :distribute %>
+  </div>
+  <div class="field">
+    <%= f.label :vanity %><br />
+    <%= f.check_box :vanity %>
+  </div>
+  <div class="field">
+    <%= f.label :reveal_results %><br />
+    <%= f.check_box :reveal_results %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
