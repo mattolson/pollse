@@ -1,3 +1,11 @@
+<% content_for :onready do %>
+  $('a.answer').on('click', function(e) {
+    $('#response_value').val($(this).data('value'));
+    $('#new_response').trigger('submit.rails');
+    e.preventDefault();
+  });
+<% end %>
+
 <div class="row">
   <div class="col-md-3">
     <%= gravatar_for(@user) %>
@@ -5,7 +13,17 @@
   </div>
   <div class="col-md-9">
     <% if @featured_poll %>
-      <h1 class="question"><%= @featured_poll.question.body %></h1>
+      <%= simple_form_for @response, :url => poll_responses_path(@featured_poll), :remote => true do |f| %>
+        <%= f.input :value, :as => :hidden %>
+        <div class="poll">
+          <h1 class="question"><%= @featured_poll.question.body %></h1>
+          <div id="answers" class="btn-group-lg btn-group-vertical">
+            <% @featured_poll.question.question_options.map(&:response_value).each do |option| %>
+              <a class="btn btn-default answer" data-value="<%= option %>"><%= option %></a>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
