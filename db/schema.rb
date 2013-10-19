@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019170141) do
+ActiveRecord::Schema.define(:version => 20131019192200) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(:version => 20131019170141) do
   create_table "point_transactions", :force => true do |t|
     t.integer  "user_id"
     t.integer  "points"
-    t.string   "transaction_type"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "transaction_type_id"
   end
 
   add_index "point_transactions", ["user_id"], :name => "index_point_transactions_on_user_id"
@@ -118,6 +118,14 @@ ActiveRecord::Schema.define(:version => 20131019170141) do
 
   add_index "responses", ["poll_id"], :name => "index_responses_on_poll_id"
   add_index "responses", ["user_id"], :name => "index_responses_on_user_id"
+
+  create_table "transaction_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "points"
+    t.boolean  "repeatable"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
