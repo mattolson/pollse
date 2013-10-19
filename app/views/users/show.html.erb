@@ -10,28 +10,14 @@
   <div class="col-md-3">
     <%= gravatar_for(@user) %>
     <h3><%= @user.username %></h3>
+    <dl>
+      <dt>My Points</dt>
+      <dd><%= @user.points %></dd>
+    </dl>
   </div>
   <div class="col-md-9">
     <% if @featured_poll %>
-      <%= simple_form_for @response, :url => poll_responses_path(@featured_poll), :remote => true do |f| %>
-        <%= f.input :value, :as => :hidden %>
-        <div class="poll">
-          <h1 class="question"><%= @featured_poll.question.body %></h1>
-          <div id="answers" class="btn-group-lg btn-group-vertical">
-            <% @featured_poll.question.question_options.map(&:response_value).each do |option| %>
-              <a class="btn btn-default answer" data-value="<%= option %>"><%= option %></a>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+      <%= render :partial => '/polls/vote' %>
     <% end %>
   </div>
 </div>
-
-
-<dl>
-  <dt>My Points</dt>
-  <dd><%= @user.points %></dd>
-</dl>
-
-
