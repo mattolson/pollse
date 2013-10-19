@@ -1,15 +1,14 @@
 Pollse::Application.routes.draw do
-  resources :point_transactions
 
+  root :to  => 'static_pages#index'
+
+  resources :point_transactions
 
   resources :category_assignments
 
-
   resources :categories
 
-
   resources :responses
-
 
   resources :polls
 
