@@ -1,5 +1,6 @@
 class TransactionType < ActiveRecord::Base
   has_many :transactions, :dependent => :nullify
+  has_many :offers,       :dependent => :destroy
   
   validates :name,       :presence     => true,
                          :uniqueness   => {:case_sensitive => false}

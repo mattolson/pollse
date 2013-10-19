@@ -18,6 +18,10 @@ Pollse::Application.routes.draw do
   resources :polls do
     resources :responses, :only => [:create, :update]
   end
+  
+  resources :offers, :only => [:index] do
+    post :buy, :on => :member
+  end
 
   resources :questions
 

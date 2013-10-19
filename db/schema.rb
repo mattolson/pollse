@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019192200) do
+ActiveRecord::Schema.define(:version => 20131019202452) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -61,6 +61,19 @@ ActiveRecord::Schema.define(:version => 20131019192200) do
 
   add_index "category_assignments", ["category_id"], :name => "index_category_assignments_on_category_id"
   add_index "category_assignments", ["question_id"], :name => "index_category_assignments_on_question_id"
+
+  create_table "offers", :force => true do |t|
+    t.integer  "transaction_type_id"
+    t.string   "name"
+    t.float    "price"
+    t.boolean  "display"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  add_index "offers", ["transaction_type_id"], :name => "index_offers_on_transaction_type_id"
 
   create_table "point_transactions", :force => true do |t|
     t.integer  "user_id"
