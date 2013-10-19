@@ -1,3 +1,11 @@
+<% content_for :onready do %>
+  $('a.answer').on('click', function(e) {
+    $('#response_value').val($(this).data('value'));
+    $('#new_response').trigger('submit.rails');
+    e.preventDefault();
+  });
+<% end %>
+
 <%= simple_form_for @response, :url => poll_responses_path(@response.poll), :remote => true do |f| %>
   <%= f.input :value, :as => :hidden %>
   <div class="poll">
@@ -10,3 +18,4 @@
   </div>
 <% end %>
 
+<div id="poll_results_<%= @response.poll.id %>"></div>
