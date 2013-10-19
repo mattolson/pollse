@@ -1,0 +1,4 @@
+<h1><%= @offer.name %> <em class="text-danger"><%= @offer.points %> points</em></h1>
+
+
+<%= link_to "Redeem Now", buy_offer_path(@offer), :class => "btn btn-success", :method => :post %>

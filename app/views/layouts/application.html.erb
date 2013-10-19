@@ -39,6 +39,9 @@
                       <%= link_to "New Question", new_question_path, :class => "menuitem" %>
                     </li>
                     <li class="presentation">
+                      <%= link_to "Offers", offers_path, :class => "menuitem" %>
+                    </li>                    
+                    <li class="presentation">
                       <%= link_to "Account Setting", edit_user_registration_path, :class => "menuitem" %>
                     </li>
                     <li role="presentation" class="divider"></li>
@@ -60,6 +63,14 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
+          <% if flash[:notice] %>
+          <div class="alert alert-success"><%= flash[:notice] %></div>
+          <% end %>
+    
+          <% if flash[:alert] %>
+          <div class="alert alert-danger"><%= flash[:alert] %></div>
+          <% end %>
+          
           <%= yield %>
         </div>
       </div>
