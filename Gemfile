@@ -14,6 +14,8 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
+gem 'simple_form'
+gem 'less-rails-bootstrap'
 
 gem 'capistrano', '~> 2.15'
 
