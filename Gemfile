@@ -4,6 +4,7 @@ gem 'rails', '3.2.15'
 gem 'mysql2'
 gem 'unicorn'
 gem 'versioned_seeds'
+gem "friendly_id", "~> 4.0.10"
 
 # Active admin
 gem 'activeadmin', github: 'gregbell/active_admin', branch: '0-6-stable'

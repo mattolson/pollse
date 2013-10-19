@@ -76,6 +76,8 @@ GEM
     execjs (2.0.2)
     formtastic (2.2.1)
       actionpack (>= 3.0)
+    friendly_id (4.0.10.1)
+      activerecord (>= 3.0, < 4.0)
     has_scope (0.6.0.rc)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
@@ -194,6 +196,7 @@ DEPENDENCIES
   capistrano (~> 2.15)
   coffee-rails (~> 3.2.1)
   devise
+  friendly_id (~> 4.0.10)
   less-rails-bootstrap
   meta_search (>= 1.1.0.pre)
   mysql2
