@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_or_guest_user
+  helper_method :current_or_guest_user, :markdown_parser
 
   protect_from_forgery
 
@@ -26,6 +26,21 @@ class ApplicationController < ActionController::Base
   rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
     session[:guest_user_id] = nil
     guest_user
+  end
+
+  def markdown_parser
+    return @markdown_parser if @markdown_parser
+
+    renderer = Redcarpet::Render::HTML.new(:hard_wrap => true, :filter_html => true, :no_links => true)
+    options = {
+      :autolink => false,
+      :no_intra_emphasis => true,
+      :lax_spacing => true,
+      :strikethrough => true,
+      :superscript => true
+    }
+
+    @markdown_parser = Redcarpet::Markdown.new(renderer, options)
   end
 
   private

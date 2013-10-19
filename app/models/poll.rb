@@ -19,8 +19,19 @@ class Poll < ActiveRecord::Base
                   :reveal_results,
                   :vanity,
                   :enabled
+
+  default_scope order('created_at desc')
+  scope :active, where(
+      'enabled = ?', true
+    ).where(
+      'start_at is null or start_at <= ?', Time.now
+    ).where(
+      'end_at is null or end_at >= ?', Time.now
+    ).where(
+      'response_limit is null or (select count(id) from responses r where r.poll_id = id) < response_limit'
+    )
                   
-  def open?
+  def active?
     return if !self.enabled
     return if self.start_at       && self.start_at > Time.now
     return if self.end_at         && self.end_at   < Time.now
@@ -28,9 +39,4 @@ class Poll < ActiveRecord::Base
     
     true
   end
-  
-  def closed?
-    !open?
-  end
-  
 end

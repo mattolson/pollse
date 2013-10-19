@@ -5,6 +5,7 @@ gem 'mysql2'
 gem 'unicorn'
 gem 'versioned_seeds'
 gem "friendly_id", "~> 4.0.10"
+gem 'redcarpet'
 
 # Active admin
 gem 'activeadmin', github: 'gregbell/active_admin', branch: '0-6-stable'

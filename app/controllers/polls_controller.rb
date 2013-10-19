@@ -1,11 +1,11 @@
 class PollsController < ApplicationController
   
   def index
-    @polls = current_or_guest_user.polls
+    @polls = Poll.active
   end
 
   def show
-    @poll = current_or_guest_user.polls.find(params[:id])
+    @poll = Poll.find(params[:id])
   end
 
   def new
