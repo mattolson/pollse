@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>User</th>
-    <th>Title</th>
     <th>Body</th>
     <th></th>
     <th></th>
@@ -13,7 +12,6 @@
 <% @questions.each do |question| %>
   <tr>
     <td><%= question.user %></td>
-    <td><%= question.title %></td>
     <td><%= question.body %></td>
     <td><%= link_to 'Show', question %></td>
     <td><%= link_to 'Edit', edit_question_path(question) %></td>

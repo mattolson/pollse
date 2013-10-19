@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131019050649) do
+ActiveRecord::Schema.define(:version => 20131019063307) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -28,6 +28,16 @@ ActiveRecord::Schema.define(:version => 20131019050649) do
 
   add_index "category_assignments", ["category_id"], :name => "index_category_assignments_on_category_id"
   add_index "category_assignments", ["question_id"], :name => "index_category_assignments_on_question_id"
+
+  create_table "point_transactions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "points"
+    t.string   "transaction_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "point_transactions", ["user_id"], :name => "index_point_transactions_on_user_id"
 
   create_table "polls", :force => true do |t|
     t.integer  "user_id"
