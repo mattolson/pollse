@@ -34,4 +34,8 @@ class Offer < ActiveRecord::Base
   def buy!(user)
     PointTransaction.transact!(user, self.transaction_type.name)
   end
+  
+  def free?
+    self.price.blank? || self.price <= 0
+  end
 end
