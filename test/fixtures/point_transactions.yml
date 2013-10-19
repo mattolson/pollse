@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  points: 1
+  transaction_type: MyString
+
+two:
+  user: 
+  points: 1
+  transaction_type: MyString

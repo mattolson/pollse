@@ -1,4 +1,7 @@
 Pollse::Application.routes.draw do
+  resources :point_transactions
+
+
   resources :category_assignments
 
 
@@ -10,11 +13,7 @@ Pollse::Application.routes.draw do
 
   resources :polls
 
-
-  resources :question_options
-
-
-  resources :questions
+  resources :questions, :except => [:destroy]
 
   devise_for :users
 
