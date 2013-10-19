@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  transaction_type: 
+  name: MyString
+  price: 1.5
+  display: false
+  start_at: 2013-10-19 13:24:53
+  end_at: 2013-10-19 13:24:53
+
+two:
+  transaction_type: 
+  name: MyString
+  price: 1.5
+  display: false
+  start_at: 2013-10-19 13:24:53
+  end_at: 2013-10-19 13:24:53

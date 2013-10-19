@@ -1,0 +1,23 @@
+<table class="table">
+  <caption>Offers</caption>
+  
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Points</th>
+      <th>Price</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @offers.each do |offer| %>
+    <tr>
+      <td><%= offer.name %></td>
+      <td><%= offer.points %></td>
+      <td><%= number_to_currency(offer.price) %></td>
+      <td><%= link_to "Buy Now", buy_offer_path(offer), :class => "btn btn-success", :method => :post %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
