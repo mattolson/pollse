@@ -19,3 +19,16 @@ h1, h2, h3, h4, h5, h6 {
 h1.question {
   font-size: 48px;
 }
+
+/* homem page */
+
+	.featured-poll {
+		height:300px;
+		border:1px solid #ccc;
+		background:#fcfcfc;
+	}
+
+	.start {
+		text-align:center;
+		margin:75px auto 100px auto;
+	}
