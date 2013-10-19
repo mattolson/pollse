@@ -2,12 +2,14 @@
   <div class="col-md-3">
     <%= gravatar_for(@user) %>
     <h3><%= @user.username %></h3>
+    <dl>
+      <dt>My Points</dt>
+      <dd><%= @user.points %></dd>
+    </dl>
   </div>
   <div class="col-md-9">
     <% if @featured_poll %>
-      <h1 class="question"><%= @featured_poll.question.body %></h1>
+      <%= render :partial => '/polls/vote' %>
     <% end %>
   </div>
 </div>
-
-

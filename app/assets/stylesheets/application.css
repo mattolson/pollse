@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require custom_bootstrap/custom_bootstrap
+ *= require rickshaw
  *= require_self
  */
 
@@ -18,6 +19,11 @@ h1, h2, h3, h4, h5, h6 {
 
 h1.question {
   font-size: 48px;
+  margin-bottom: 1em;
+}
+
+div.poll {
+  text-align: center;
 }
 
 /* homem page */

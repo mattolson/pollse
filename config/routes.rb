@@ -15,9 +15,9 @@ Pollse::Application.routes.draw do
 
   resources :categories
 
-  resources :responses
-
-  resources :polls
+  resources :polls do
+    resources :responses, :only => [:create, :update]
+  end
 
   resources :questions
 

@@ -1,0 +1,21 @@
+<% content_for :onready do %>
+  $('a.answer').on('click', function(e) {
+    $('#response_value').val($(this).data('value'));
+    $('#new_response').trigger('submit.rails');
+    e.preventDefault();
+  });
+<% end %>
+
+<%= simple_form_for @response, :url => poll_responses_path(@response.poll), :remote => true do |f| %>
+  <%= f.input :value, :as => :hidden %>
+  <div class="poll">
+    <h1 class="question"><%= @response.poll.question.body %></h1>
+    <div id="answers" class="btn-group-lg btn-group-vertical">
+      <% @response.poll.question.question_options.map(&:response_value).each do |option| %>
+        <a class="btn btn-default answer" data-value="<%= option %>"><%= option %></a>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div id="poll_results_<%= @response.poll.id %>"></div>
