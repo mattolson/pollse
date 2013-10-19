@@ -2,7 +2,7 @@ class CreateQuestionOptions < ActiveRecord::Migration
   def change
     create_table :question_options do |t|
       t.references :question
-      t.string :response
+      t.string :response_value
 
       t.timestamps
     end

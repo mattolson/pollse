@@ -1,5 +1,14 @@
 class Poll < ActiveRecord::Base
   belongs_to :user
   belongs_to :question
-  attr_accessible :distribute, :end_at, :featured, :response_limit, :reveal_results, :start_at, :vanity
+  
+  has_many   :responses, :dependent => :destroy
+  
+  attr_accessible :start_at,
+                  :end_at,
+                  :response_limit,
+                  :distribute,
+                  :featured,
+                  :reveal_results,
+                  :vanity
 end
