@@ -6,7 +6,9 @@ class Question < ActiveRecord::Base
   has_many   :category_assignments, :dependent => :destroy
   has_many   :categories,           :through   => :category_assignments
   
-  validates :body, :presence => true
+  validates :user_id, :presence => true
+  validates :body,    :presence => true
   
   attr_accessible :body
+  
 end

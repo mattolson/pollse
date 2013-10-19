@@ -16,7 +16,7 @@ Pollse::Application.routes.draw do
 
   resources :polls
 
-  resources :questions, :except => [:destroy]
+  resources :questions
 
   devise_for :users
 end

@@ -1,22 +1,22 @@
 class QuestionsController < ApplicationController
   def index
-    @questions = current_user.questions
+    @questions = current_or_guest_user.questions
   end
 
   def show
-    @question = current_user.questions.find(params[:id])
+    @question = current_or_guest_user.questions.find(params[:id])
   end
 
   def new
-    @question = current_user.questions.build
+    @question = current_or_guest_user.questions.build
   end
 
   def edit
-    @question = current_user.questions.find(params[:id])
+    @question = current_or_guest_user.questions.find(params[:id])
   end
 
   def create
-    @question = current_user.questions.build(params[:question])
+    @question = current_or_guest_user.questions.build(params[:question])
 
     if @question.save
       redirect_to @question, notice: 'Question was successfully created.'
@@ -26,12 +26,20 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = current_user.questions.find(params[:id])
+    @question = current_or_guest_user.questions.find(params[:id])
 
     if @question.update_attributes(params[:question])
       redirect_to @question, notice: 'Question was successfully updated.'
     else
       render action: "edit"
     end
+  end
+  
+  def destroy
+    @question = current_or_guest_user.questions.find(params[:id])
+    
+    @question.destroy
+    
+    redirect_to questions_url
   end
 end
