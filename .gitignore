@@ -1,6 +1,6 @@
 .DS_store
 tmp/
 log/
-vendor/bundle
+vendor/bundle/**/*
 .bundle
 config/env-*.bash
