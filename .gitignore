@@ -5,3 +5,4 @@ log/
 vendor/bundle/**/*
 .bundle
 config/env-*.bash
+.versioned_seeds

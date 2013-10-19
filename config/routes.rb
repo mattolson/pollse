@@ -1,5 +1,8 @@
 Pollse::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   root :to  => 'static_pages#index'
 
   match 'about' => 'static_pages#about'
@@ -19,4 +22,5 @@ Pollse::Application.routes.draw do
   resources :questions
 
   devise_for :users
+  ActiveAdmin.routes(self)
 end
