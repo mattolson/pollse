@@ -19,8 +19,10 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: pollse
+  reconnect: false
+  database: railsrumble_production
+  pool: 5
   username: root
-  password: 
-  host: 127.0.0.1
-  port: 3306
+  password: "qT2W1db7h5ecUspxlBEy"
+  host: localhost
+  socket: /var/run/mysqld/mysqld.sock
