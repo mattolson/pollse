@@ -2,6 +2,10 @@ Pollse::Application.routes.draw do
 
   root :to  => 'static_pages#index'
 
+  match 'about' => 'static_pages#about'
+  match 'terms' => 'static_pages#terms'
+  match 'privacy' => 'static_pages#privacy'
+
   resources :point_transactions
 
   resources :category_assignments
@@ -15,5 +19,4 @@ Pollse::Application.routes.draw do
   resources :questions, :except => [:destroy]
 
   devise_for :users
-
 end
