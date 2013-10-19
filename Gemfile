@@ -4,7 +4,6 @@ gem 'rails', '3.2.15'
 gem 'mysql2'
 gem 'unicorn'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -15,3 +14,9 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
+
+gem 'capistrano', '~> 2.15'
+
+group :production do
+  gem 'therubyracer'
+end
