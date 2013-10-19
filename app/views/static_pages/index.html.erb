@@ -1,7 +1,26 @@
+
 <div>
-  <%= current_or_guest_user.email %>
+  Hi <%= current_or_guest_user.email %>
 </div>
 
 <div>
   <%= current_or_guest_user.guest? %>
 </div>
+
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2">
+			<div class="featured-poll">Word up Rumblers! This is where the featured poll on the homepage will go.</div>
+		</div>		
+	</div>
+
+	<div class="start">
+		<%= link_to "Create A Poll", new_poll_path, :class => "btn btn-success btn-lg" %> 
+	</div>	
+	
+	</div>
+
+
+
+
+
+
