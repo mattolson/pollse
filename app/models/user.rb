@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
     # TODO: Figure out how the guest user works in this workflow??
     PointTransaction.transact!(self, :sign_up)
   end
+
+  def answered?(poll)
+    self.responses.where(:poll_id => poll.id).count > 0
+  end
 end
