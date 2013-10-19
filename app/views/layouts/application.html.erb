@@ -5,38 +5,48 @@
 
   <body>
     <nav class="navbar navbar-inverse" role="navigation">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Pollse</a>
-      </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">Pollse</a>
+          </div>
 
-      <div class="collapse navbar-collapse navbar-ex8-collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <% if current_or_guest_user.guest? %>
-            <li>
-              <%= link_to 'Sign Up', new_user_registration_path %>
-            </li>
-            <li>
-              <%= link_to 'Sign In', new_user_session_path %>
-            </li>
-          <% else %>
-            <li class="dropdown">
-              <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
-                <%= current_or_guest_user.email %>
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <li class="presentation">
-                  <%= link_to "Setting", edit_user_registration_path, :class => "menuitem" %>
+          <div class="collapse navbar-collapse navbar-ex8-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <% if current_or_guest_user.guest? %>
+                <li>
+                <%= link_to 'Sign Up', new_user_registration_path %>
                 </li>
-                <li role="presentation" class="divider"></li>
-                <li class="presentation">
-                  <%= link_to "Sign Out", destroy_user_session_path, :class => "menuitem", :method => :delete %>
+                <li>
+                <%= link_to 'Sign In', new_user_session_path %>
                 </li>
-              </ul>
-            </li>
-          <% end %>
-        </ul>
+              <% else %>
+                <li class="dropdown">
+                  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+                    <%= current_or_guest_user.email %>
+                    <span class="caret"></span>
+                  </a>
+
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <li class="presentation">
+                    <%= link_to "New Question", new_question_path, :class => "menuitem" %>
+                    </li>
+                    <li class="presentation">
+                    <%= link_to "Account Setting", edit_user_registration_path, :class => "menuitem" %>
+                    </li>
+                    <li role="presentation" class="divider"></li>
+                    <li class="presentation">
+                    <%= link_to "Sign Out", destroy_user_session_path, :class => "menuitem", :method => :delete %>
+                    </li>
+                  </ul>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
+    </div>
     </nav>
 
     <%= yield :before_page %>
