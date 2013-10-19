@@ -1,0 +1,10 @@
+<%= javascript_include_tag "application" %>
+<%= yield :javascripts %>
+
+<script src="//code.jquery.com/jquery.js"></script>
+
+<script>
+  $(document).ready(function () {
+    <%= yield :onready %>
+  });
+</script>

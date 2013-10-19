@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   def points
     self.point_transactions.sum(:points) + self.responses.count
   end
+
+  def guest?
+    self.email.end_with?('@example.com')
+  end
 end
