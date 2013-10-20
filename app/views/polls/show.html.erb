@@ -1,4 +1,4 @@
-<%= render :partial => '/polls/embed', :locals => {:poll => @poll, :response => @response, :cycle_polls => false} %>
+<%= render :partial => '/polls/embed', :locals => {:poll => @poll, :response => @response, :cycle_polls => nil} %>
 
 <% if @poll.user == current_or_guest_user %>
   <div class="well well-lg">
