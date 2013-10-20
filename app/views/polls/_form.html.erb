@@ -12,12 +12,12 @@
 
   <%= f.simple_fields_for :question do |q| %>
     <div class="form-group">
-      <%= q.input :body, :input_html => {:class => "form-control", :rows => 6}, :label => false, :placeholder => "Enter your question here." %>
+      <%= q.input :body, :input_html => {:class => "form-control", :rows => 3}, :label => false, :placeholder => "Enter your question here." %>
     </div>
     
     <%= q.simple_fields_for :question_options do |question_option| %>
       <div class="input-group">
-        <%= question_option.text_field :response_value, :class => "form-control", :placeholder => "Enter one of the question answers here." %>
+        <%= question_option.text_field :response_value, :class => "form-control new-question-form", :placeholder => "Enter one of the question answers here." %>
         <span class="input-group-btn">
           <%= question_option.link_to_remove :class => "btn btn-danger text-danger" do %>
             <i class="glyphicon glyphicon-remove"></i>
@@ -32,7 +32,7 @@
       <% end %>
     </p>
   <% end %>
-  <div class="actions text-center">
+  <div class="actions vspace-med">
     <%= f.submit "Create Question", :class => "btn btn-lg btn-success" %>
   </div>
 <% end %>
