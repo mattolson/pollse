@@ -1,20 +1,32 @@
-<%= simple_form_for(@poll) do |f| %>
+<%= simple_nested_form_for(@poll) do |f| %>
   <% if @poll.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@poll.errors.count, "error") %> prohibited this poll from being saved:</h2>`
-
       <ul>
-      <% @poll.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @poll.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :question_id %><br />
-    <%= f.text_field :question_id %>
-  </div>
+  <%= f.simple_fields_for :question do |q| %>
+    <div class="form-group">
+      <%= q.input :body, :input_html => {:class => "form-control", :rows => 6} %>
+    </div>
+    
+    <%= q.simple_fields_for :question_options do |question_option| %>
+      <%= question_option.text_field :response_value %>
+      <%= question_option.link_to_remove :class => "text-danger" do %>
+        <i class="glyphicon glyphicon-remove"></i>
+      <% end %>
+    <% end %>
+    <p><%= q.link_to_add :question_options, :class => "btn btn-sm btn-primary" do %>
+      <i class="glyphicon glyphicon-plus-sign"></i> Add a Response
+      <% end %>
+    </p>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :start_at %><br />
     <%= f.datetime_select :start_at %>

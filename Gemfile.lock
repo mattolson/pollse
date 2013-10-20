@@ -15,6 +15,12 @@ GIT
       rails (>= 3.0.0, < 4)
       sass (~> 3.1)
 
+GIT
+  remote: git://github.com/ryanb/nested_form.git
+  revision: 42028bc06e72a848d297edc1467a969a7c9def57
+  specs:
+    nested_form (0.3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -115,7 +121,6 @@ GEM
     mime-types (1.25)
     multi_json (1.8.2)
     mysql2 (0.3.13)
-    nested_form (0.3.2)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -202,7 +207,7 @@ DEPENDENCIES
   less-rails-bootstrap
   meta_search (>= 1.1.0.pre)
   mysql2
-  nested_form
+  nested_form!
   rails (= 3.2.15)
   redcarpet
   sass-rails (~> 3.2.3)

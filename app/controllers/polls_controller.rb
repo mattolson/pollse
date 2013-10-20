@@ -1,5 +1,5 @@
 class PollsController < ApplicationController
-  before_filter :authenticate_user!, :only => :activate
+  before_filter :authenticate_user!, :only => [:activate, :deactivate]
 
   def index
     @polls = Poll.active
@@ -12,6 +12,7 @@ class PollsController < ApplicationController
 
   def new
     @poll = current_or_guest_user.polls.build
+    @poll.build_question
   end
 
   def create

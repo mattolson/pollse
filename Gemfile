@@ -21,7 +21,7 @@ end
 
 gem 'devise'
 gem 'simple_form'
-gem 'nested_form'
+gem 'nested_form', :github => 'ryanb/nested_form'
 gem 'less-rails-bootstrap'
 
 gem 'capistrano', '~> 2.15'
