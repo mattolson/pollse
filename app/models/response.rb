@@ -4,4 +4,5 @@ class Response < ActiveRecord::Base
   
   attr_accessible :value
   validates :value, :user, :poll, :presence => true
+  validates :poll_id, :uniqueness => {:scope => :user_id}
 end

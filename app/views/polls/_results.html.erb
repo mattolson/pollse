@@ -1,0 +1,44 @@
+<% if poll.responses.count > 0 %>
+  <div class="results">
+    <canvas id="results_graph_<%= poll.id %>" width="600" height="400"></canvas>
+  </div>
+  <p class="thanks">Thanks for voting!</p>
+
+  <script>
+    var response_values = <%= poll.question.question_options.map(&:response_value).to_json.html_safe %>;
+    var metrics = <%= poll.metrics.to_json.html_safe %>;
+    var maxVal = 0;
+    for (var i = 0; i < metrics.length; i++) {
+      if (metrics[i] > maxVal)
+        maxVal = metrics[i];
+    }
+
+    var data = {
+      labels: response_values,
+      datasets: [{
+        fillColor : "rgba(151,187,205,0.5)",
+        strokeColor : "rgba(151,187,205,1)",
+        data: metrics
+      }]
+    }
+
+    var ctx = document.getElementById("results_graph_<%= poll.id %>").getContext("2d");
+    var chart = new Chart(ctx).Bar(data, {
+      scaleOverride: true,
+      scaleSteps: 5,
+      scaleStartValue: 0,
+      scaleStepWidth: (5 * Math.round(maxVal/5)) / 5,
+      scaleShowGridLines: false,
+      scaleFontFamily: 'Verdana',
+      scaleFontSize: 13
+    });
+  </script>
+<% else %>
+  <p>We haven't received any responses yet.</p>
+  <ul>
+    <% @poll.question.question_options.each do |option| %>
+      <li><%= option %></li>
+    <% end %>
+  </ul>
+<% end %>
+
