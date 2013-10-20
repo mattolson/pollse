@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     @featured_poll = @user.polls.active.includes(:question => :question_options).where(:vanity => true).first
     if @featured_poll
       @response = @featured_poll.responses.build
-      @response.user = current_or_guest_user
     end
   end
 end

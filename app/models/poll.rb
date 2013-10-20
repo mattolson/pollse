@@ -45,4 +45,10 @@ class Poll < ActiveRecord::Base
       self.responses.where(:value => option.response_value).count
     end
   end
+
+  def activate!
+    return if self.enabled
+    PointTransaction.transact!(self.user, :standard_poll) 
+    self.update_attribute(:enabled, true)
+  end
 end

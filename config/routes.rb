@@ -9,21 +9,17 @@ Pollse::Application.routes.draw do
   match 'terms' => 'static_pages#terms'
   match 'privacy' => 'static_pages#privacy'
 
-  resources :point_transactions
-
-  resources :category_assignments
-
-  resources :categories
-
-  resources :polls do
-    resources :responses, :only => [:create, :update]
+  resources :polls, :except => [:edit, :update, :destroy] do
+    member do
+      post :activate
+      post :deactivate
+    end
+    resources :responses, :only => :create
   end
   
   resources :offers, :only => [:index, :show] do
     post :buy, :on => :member
   end
-
-  resources :questions
 
   resources :users
 

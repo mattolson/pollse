@@ -9,11 +9,7 @@
   </div>
   <div class="col-md-9">
     <% if @featured_poll %>
-      <% if current_or_guest_user.answered?(@featured_poll) %>
-        <%= render :partial => '/polls/results', :locals => {:poll => @featured_poll} %>
-      <% else %>
-        <%= render :partial => '/polls/vote', :locals => {:response => @response} %>
-      <% end %>
+      <%= render :partial => '/polls/embed', :locals => {:poll => @featured_poll, :response => @response} %>
     <% end %>
   </div>
 </div>
