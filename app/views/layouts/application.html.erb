@@ -4,7 +4,7 @@
   <%= render :partial => '/shared/head' %>
 
   <body>
-    <nav class="navbar navbar-inverse" role="navigation">
+    <nav class="navbar" role="navigation">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
@@ -60,9 +60,9 @@
 
     <%= yield :before_page %>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
+    <!-- <div class="container">
+         <div class="row">
+           <div class="col-sm-12"> -->
           <% if flash[:notice] %>
           <div class="alert alert-success"><%= flash[:notice] %></div>
           <% end %>
@@ -70,12 +70,10 @@
           <% if flash[:alert] %>
           <div class="alert alert-danger"><%= flash[:alert] %></div>
           <% end %>
-          
           <%= yield %>
-        </div>
-      </div>
-    </div>
-
+        <!-- </div>
+       </div>
+     </div> -->
     <%= yield :after_page %>
 
     <%= render :partial => '/shared/javascript' %>

@@ -20,6 +20,78 @@ p.thanks {
 
 /* homem page */
 
+header {
+	height:100px;
+	.logo {
+			border:1px solid red;
+		}
+}
+
+.full-width {
+	background:#0b80fa;
+	border-bottom:1px solid #036bd7;
+	min-height:500px;
+}
+
+.ask-bubble {
+	position:relative;
+	background:#fff;
+	margin:70px 0 50px 0;
+	padding:30px 60px;
+	border-radius:40px;
+	-webkit-border-radius:40px;
+}
+
+.ask-tail {
+	position:absolute;
+	background:image-url("ask_tail.png") 0 0 no-repeat;
+	display:block;
+	height:50px;
+	width:69px;
+	bottom:-50px;
+	left:50%;
+}
+
+.ask-user {
+	margin:70px auto 25px auto;
+	text-align:center;
+	font-size:16px;
+	a {
+		color:#a8d1ff;
+		text-decoration:underline;
+	}
+	img {
+		border:3px solid #c5c7c8;
+		border-radius:3px;
+		-webkit-border-radius:3px;
+		
+	}
+}
+
+.get-started {
+	text-align:center;
+	margin-top:50px;
+	h2 {
+		margin-bottom:50px;
+	}
+	a {
+		padding:25px 50px;
+		background:#1ba400;
+		border:4px solid #188203;
+		color:#fff;
+		font-size:32px;
+		border-radius:10px;
+		-webkit-border-radius:10px;
+		&:hover {
+			text-decoration:none;
+			border-color:#1b9603;
+			background:#25cb04;
+		}
+	}
+	
+}
+
+
 	.featured-poll {
 		height:300px;
 		background:#fcfcfc;

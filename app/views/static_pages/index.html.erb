@@ -1,27 +1,42 @@
-	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
-			<div class="featured-poll">
-				<h1>Who would win in a fight between a taco and a grilled cheese sandwhich</h1>
-				<form>
-					<input id="age_child" name="age" type="radio" value="child" />
-					<label for="age_child">Grilled Cheese Sandwhich</label>
-					<br />
-					<input id="age_adult" name="age" type="radio" value="adult" />
-					<label for="age_adult">Taco</label>
-					<br />
-					<input id="age_adult" name="age" type="radio" value="adult" />
-					<label for="age_adult">Draw</label>
-				</form>
-				<p><strong>TheBigCheese</strong> wants to know</p>
-			</div>
-		</div>		
-	</div>
+<div class="full-width">
+  <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+					<div class="ask-bubble">
+						<span class="ask-tail"></span>
+						<h1>Who would win in a fight between a taco and a grilled cheese sandwich?</h1>
+						<form>
+							<input id="age_child" name="age" type="radio" value="child" />
+							<label for="age_child">Grilled Cheese Sandwhich</label>
+							<br />
+							<input id="age_adult" name="age" type="radio" value="adult" />
+							<label for="age_adult">Taco</label>
+							<br />
+							<input id="age_adult" name="age" type="radio" value="adult" />
+							<label for="age_adult">Draw</label>
+						</form>
+					</div>
+					<div class="ask-user">
+						<%= image_tag("avatar_placeholder.png", :alt => "avatar") %>
+						<strong><%= link_to "TheBigCheese", "" %></strong> wants to know
+					</div>
+					
+      </div>
+     </div>
+   </div>
+</div>
 
-	<div class="start">
-		<%= link_to "Create A Poll", new_poll_path, :class => "btn btn-success btn-lg" %> 
-	</div>	
+<div class="container">	
+	<div class="row">
+    <div class="col-sm-12">
+			<div class="get-started">
+				<h2>Got a burning question? Silly or serious.<br /> Use Pollse to ask people what they think?</h2>
+				<%= link_to "Create A Poll", new_poll_path %> 
+			</div>
+     </div>
+   </div>
+</div>
 	
-	</div>
 
 
 
