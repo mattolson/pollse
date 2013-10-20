@@ -7,18 +7,30 @@
 <h2>The Team</h2>
 
 <h4>Patrick Edelman</h4>
-<p>A Computer Science major at CSU Chico. Asker of questions, drinker of craft beer. Has too much fun coding and working on startups.</p>
+<p>
+  <%= gravatar_for(@pat, 75) %>
+  A Computer Science major at CSU Chico. Asker of questions, drinker of craft beer. Has too much fun coding and working on startups.
+</p>
+<%= link_to "Patrick's Questions", @pat %>
 
 <h4>Chris Morris</h4>
 <p>
+  <%= gravatar_for(@chris, 75) %>
   As a teacher, Chris gets a lot of questions.  He is hopeful that his students will start using this site instead of sending him email!
 </p>
+<%= link_to "Chris's Questions", @chris %>
 
 <h4>Matt Olson</h4>
-<p></p>
+<p>
+    <%= gravatar_for(@matt, 75) %>
+</p>
+<%= link_to "Matt's Questions", @matt %>
 
 <h4>Mark Weiss</h4>
-<p></p>
+<p>
+  <%= gravatar_for(@mark, 75) %>
+</p>
+<%= link_to "Mark's Questions", @mark %>
 
 <br />
 

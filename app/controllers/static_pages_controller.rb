@@ -11,6 +11,10 @@ class StaticPagesController < ApplicationController
   end
 
   def about
+    @chris = User.find_by_email("hitsvilleusa@yahoo.com")
+    @matt  = User.find_by_email("matt@mattolson.com")
+    @pat   = User.find_by_email("patrick.the.edelman@gmail.com")
+    @mark  = User.find_by_email("wingman42@gmail.com")
   end
 
   def privacy
