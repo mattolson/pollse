@@ -31,7 +31,7 @@
           scaleOverride: true,
           scaleSteps: 5,
           scaleStartValue: 0,
-          scaleStepWidth: (5 * Math.round(maxVal/5)) / 5,
+          scaleStepWidth: maxVal > 5 ? (5 * Math.round(maxVal/5)) / 5 : 1,
           scaleShowGridLines: false,
           scaleFontFamily: 'Verdana',
           scaleFontSize: 13
