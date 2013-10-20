@@ -17,6 +17,7 @@ class PollsController < ApplicationController
     end.compact.first
     if @poll
       @response = @poll.responses.build
+      @cycle_polls = params[:cycle_polls]
     end
   end
 
