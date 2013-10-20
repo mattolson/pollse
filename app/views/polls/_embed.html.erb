@@ -1,6 +1,6 @@
 <h1 class="question"><%= poll.question.body %></h1>
 
-<% if current_user == poll.user || current_or_guest_user.answered?(poll) %>
+<% if current_or_guest_user != poll.user && current_or_guest_user.answered?(poll) %>
 
   <%= simple_form_for response, :url => poll_responses_path(poll), :remote => true do |f| %>
     <%= f.input :value, :as => :hidden %>

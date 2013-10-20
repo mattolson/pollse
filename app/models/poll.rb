@@ -53,4 +53,8 @@ class Poll < ActiveRecord::Base
     PointTransaction.transact!(self.user, :standard_poll) 
     self.update_attribute(:enabled, true)
   end
+
+  def to_s
+    self.question.body
+  end
 end
