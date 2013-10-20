@@ -136,6 +136,23 @@ header {
 	}	
 }
 
+/* forms */
+
+#poll_question_attributes_body {
+	font-size:26px;
+}
+
+.qtips {
+	padding-left:15px;
+	h3 {
+		margin-top:0px;
+	}
+	opacity:.7;
+	&:hover {
+		opacity:1;
+	};
+}
+
 
 /* polls index */
 
@@ -165,8 +182,12 @@ header {
 /* utility */
 .sm-pad-right {
 	margin-right:8px;
-
 }
+
+.vspace-med {
+	margin-top:35px;
+}
+
 .poll-active   { border-left: 6px solid #5CB85C; }
 .poll-inactive { border-left: 6px solid #D9534F; }
 
