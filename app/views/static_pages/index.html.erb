@@ -2,10 +2,8 @@
   <div class="container">
 
 		<div class="row">
-        <div class="col-sm-12">
-          <% if @featured_poll %>
-            <%= render :partial => '/polls/embed', :locals => {:poll => @featured_poll, :response => @response} %>
-          <% end %>
+      <div class="col-sm-12">
+        <%= render :partial => '/polls/embed', :locals => {:poll => @featured_poll, :response => @response, :cycle_polls => true} %>
       </div>
      </div>
 

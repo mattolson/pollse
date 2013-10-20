@@ -1,0 +1,10 @@
+$('div.poll_results').fadeOut('fast', function() {
+  <% if @poll %>
+    $("#poll_placeholder").replaceWith("<%=j render :partial => '/polls/vote', :locals => {:response => @response, :poll => @response.poll, :cycle_polls => @cycle_polls} %>");
+    $("#poll_<%= @response.poll.id %>").fadeIn('fast');
+  <% else %>
+    $("#poll_placeholder").replaceWith("<%=j render :partial => '/polls/vote', :locals => {:response => nil, :poll => nil, :cycle_polls => false} %>");
+  <% end %>
+  $('div.poll_results').remove();
+  window.scrollTo(0, 0);
+});

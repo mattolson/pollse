@@ -1,25 +1,7 @@
-<% if current_or_guest_user != poll.user && !current_or_guest_user.answered?(poll) %>
-  <div id="poll_results_<%= poll.id %>"></div>
-  <div id="poll_<%= poll.id %>">
-    <div class="ask-bubble">
-      <span class="ask-tail"></span>
-      <h1 class="question"><%= poll.question.body %></h1>
-      <%= simple_form_for response, :url => poll_responses_path(poll), :remote => true do |f| %>
-        <div class="poll btn-group btn-group-vertical" data-toggle="buttons">
-          <% poll.question.question_options.map(&:response_value).each do |option| %>
-            <label class="btn btn-default">
-              <input class="radio_buttons required" id="response_value_<%= option.downcase.underscore %>" name="response[value]" type="radio" value="<%= option %>"/>
-              <%= option %>
-            </label>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <div class="ask-user">
-      <%= gravatar_for(poll.user, 25) %>
-      <strong><%= link_to poll.user, poll.user %></strong> wants to know
-    </div>
-  </div>
-<% else %>
-  <%= render :partial => '/polls/results', :locals => {:poll => poll} %>
-<% end %>
+<div class="polling">
+  <% if poll.nil? || (current_or_guest_user != poll.user && !current_or_guest_user.answered?(poll)) %>
+    <%= render :partial => '/polls/vote', :locals => {:response => response, :poll => poll, :cycle_polls => cycle_polls} %>
+  <% else %>
+    <%= render :partial => '/polls/results', :locals => {:poll => poll, :cycle_polls => cycle_polls} %>
+  <% end %>
+</div>

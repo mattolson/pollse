@@ -1,0 +1,32 @@
+<% if poll %>
+  <div id="poll_results_placeholder"></div>
+  <div id="poll_<%= poll.id %>">
+    <div class="ask-bubble">
+      <span class="ask-tail"></span>
+      <h1 class="question"><%= poll.question.body %></h1>
+      <%= simple_form_for response, :url => poll_responses_path(poll, :cycle_polls => cycle_polls), :remote => true do |f| %>
+        <div class="poll btn-group btn-group-vertical" data-toggle="buttons">
+          <% poll.question.question_options.map(&:response_value).each do |option| %>
+            <label class="btn btn-default">
+              <input class="radio_buttons required" id="response_value_<%= option.downcase.underscore %>" name="response[value]" type="radio" value="<%= option %>"/>
+              <%= option %>
+            </label>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="ask-user">
+      <%= gravatar_for(poll.user, 25) %>
+      <strong><%= link_to poll.user, poll.user %></strong> wants to know
+    </div>
+  </div>
+<% else %>
+  <div class="ask-bubble">
+    <span class="ask-tail"></span>
+    <h1 class="question">You have reached the end of the Internet.</h1>
+    <div class="ask-user">
+      <strong>&mdash; Tim Berners-Lee</strong>
+    </div>
+  </div>
+<% end %>
+

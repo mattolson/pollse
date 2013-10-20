@@ -1,58 +1,64 @@
-<div class="ask-bubble">
-  <span class="ask-tail"></span>
-  <h1 class="question"><%= poll.question.body %></h1>
+<div id="poll_placeholder"></div>
+<div class="poll_results" id="poll_results_<%= poll.id %>">
+  <div class="ask-bubble">
+    <span class="ask-tail"></span>
+    <h1 class="question"><%= poll.question.body %></h1>
 
-  <% if poll.responses.count > 0 %>
-    <div class="results">
-      <canvas id="results_graph_<%= poll.id %>" width="600" height="320"></canvas>
-    </div>
-    <script>
-      var response_values = <%= poll.question.question_options.map(&:response_value).to_json.html_safe %>;
-      var metrics = <%= poll.metrics.to_json.html_safe %>;
-      var maxVal = 0;
-      for (var i = 0; i < metrics.length; i++) {
-        if (metrics[i] > maxVal)
-          maxVal = metrics[i];
-      }
-
-      var data = {
-        labels: response_values,
-        datasets: [{
-          fillColor : "rgba(151,187,205,0.5)",
-          strokeColor : "rgba(151,187,205,1)",
-          data: metrics
-        }]
-      }
-
-      var ctx = document.getElementById("results_graph_<%= poll.id %>").getContext("2d");
-      var chart = new Chart(ctx).Bar(data, {
-        scaleOverride: true,
-        scaleSteps: 5,
-        scaleStartValue: 0,
-        scaleStepWidth: (5 * Math.round(maxVal/5)) / 5,
-        scaleShowGridLines: false,
-        scaleFontFamily: 'Verdana',
-        scaleFontSize: 13
-      });
-    </script>
-  <% else %>
-    <form class="text-center">
-      <div class="poll btn-group btn-group-vertical" data-toggle="buttons">
-        <% poll.question.question_options.map(&:response_value).each do |option| %>
-          <label class="btn btn-default">
-            <input class="radio_buttons required" id="response_value_<%= option.downcase.underscore %>" name="response[value]" type="radio" value="<%= option %>"/>
-            <%= option %>
-          </label>
-        <% end %>
+    <% if poll.responses.count > 0 %>
+      <div class="results">
+        <canvas id="results_graph_<%= poll.id %>" width="600" height="320"></canvas>
       </div>
-    </form>
-    <hr>
-    <p class="lead text-center">
-      Looks like this poll has not been answered yet.
-    </p>
-  <% end %>
-</div>
-<div class="ask-user">
-  <span class="glyphicon glyphicon-bell"></span> The Survey Says!
-</div>
+      <script>
+        var response_values = <%= poll.question.question_options.map(&:response_value).to_json.html_safe %>;
+        var metrics = <%= poll.metrics.to_json.html_safe %>;
+        var maxVal = 0;
+        for (var i = 0; i < metrics.length; i++) {
+          if (metrics[i] > maxVal)
+            maxVal = metrics[i];
+        }
 
+        var data = {
+          labels: response_values,
+          datasets: [{
+            fillColor : "rgba(151,187,205,0.5)",
+            strokeColor : "rgba(151,187,205,1)",
+            data: metrics
+          }]
+        }
+
+        var ctx = document.getElementById("results_graph_<%= poll.id %>").getContext("2d");
+        var chart = new Chart(ctx).Bar(data, {
+          scaleOverride: true,
+          scaleSteps: 5,
+          scaleStartValue: 0,
+          scaleStepWidth: (5 * Math.round(maxVal/5)) / 5,
+          scaleShowGridLines: false,
+          scaleFontFamily: 'Verdana',
+          scaleFontSize: 13
+        });
+      </script>
+    <% else %>
+      <form class="text-center">
+        <div class="poll btn-group btn-group-vertical" data-toggle="buttons">
+          <% poll.question.question_options.map(&:response_value).each do |option| %>
+            <label class="btn btn-default">
+              <input class="radio_buttons required" id="response_value_<%= option.downcase.underscore %>" name="response[value]" type="radio" value="<%= option %>"/>
+              <%= option %>
+            </label>
+          <% end %>
+        </div>
+      </form>
+      <hr>
+      <p class="lead text-center">
+        Looks like this poll has not been answered yet.
+      </p>
+    <% end %>
+
+    <% if cycle_polls %>
+      <p id="next_poll"><%= link_to 'Try another!', next_polls_path, :class => 'btn btn-primary', :remote => true %></p>
+    <% end %>
+  </div>
+  <div class="ask-user">
+    <span class="glyphicon glyphicon-bell"></span> The Survey Says!
+  </div>
+</div>
