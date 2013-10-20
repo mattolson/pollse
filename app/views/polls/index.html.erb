@@ -1,13 +1,20 @@
+<% content_for :onready do %>
+	$('.response-number').tooltip();
+	$('.has-voted').tooltip();
+	
+<% end %>
+
 <h1>Polls</h1>
 <div class="big-list">
 	<ul>
 	  <% @polls.each do |p| %>
 	    <li>
-				<span class="meta"><%= p.responses.size %> Responsess</span>
+				<div class="meta">
+					<span class="glyphicon glyphicon-ok has-voted" data-toggle="tooltip" title="Answered"></span> &nbsp;&nbsp;
+					<span class="glyphicon glyphicon-signal response-number" data-toggle="tooltip" title="<%= p.responses.size %> Responses"><span style="width:5px;display:inline-block;"></span><%= p.responses.size %></span> 
+				</div>
 				<%= link_to p, p %>
 			</li>
 	  <% end %>
 	</ul>
 </div>
-
-<%= link_to 'New Poll', new_poll_path %>

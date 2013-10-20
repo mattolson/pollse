@@ -1,4 +1,4 @@
-<nav class="navbar" role="navigation">
+<nav class="simple-nav" role="navigation">
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
@@ -6,15 +6,8 @@
         	<%= link_to(image_tag("pollse_logo3.png", :alt => "Pollse"), root_url, :class => "navbar-brand") %>
       </div>
 
-      <div class="collapse navbar-collapse navbar-ex8-collapse">
-        <ul class="nav navbar-nav navbar-right">
-         <li>
-						 <%= link_to "New Poll", new_poll_path %>
-		      </li>
-		      <li>
-			      <%= link_to "View Polls", polls_path %>
-		       </li>
-		 		  	<% if current_or_guest_user.guest? %>
+        <ul class="pull-right">
+ 		 		  	<% if current_or_guest_user.guest? %>
           	  <li>
 	            	<%= link_to 'Sign Up', new_user_registration_path %>
 	            </li>
@@ -22,17 +15,23 @@
 	            	<%= link_to 'Sign In', new_user_session_path %>
 	            </li>
           <% else %>
-						<li>
+					<li>
+						<%= link_to "", destroy_user_session_path, :method => :delete, :class => "glyphicon glyphicon-log-out" %>
+	        </li>						<li>
 							<%= link_to user_path(current_user) do %>
 			          <%= current_or_guest_user.email %>!
 							<% end %>
 						</li>
-						<li>
-							<%= link_to "Sign Out", destroy_user_session_path, :class => "menuitem", :method => :delete %>
-		        </li>
+
 		      <% end %>
+		      <li>
+							 <%= link_to "Ask", new_poll_path %>
+			      </li>
+			      <li>
+				      <%= link_to "All Polls", polls_path %>
+			       </li>
+	  
         </ul>
-      </div>
     </div>
   </div>
 </div>

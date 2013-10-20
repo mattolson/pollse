@@ -18,6 +18,34 @@ p.thanks {
   padding-top: 1em;
 }
 
+
+/* nav */
+
+
+.simple-nav {
+	padding:15px 0;
+	border-bottom:1px solid #ccc;
+	background:#0b80fa;
+	a {
+		color:#abd8f8;
+		&:hover {
+			color:#fff;
+		}
+	}
+	ul {
+		
+	}
+	li {
+		float:right;
+		list-style:none;
+		padding-left:15px;
+		a {
+			margin-top:15px;
+			display:inline-block;
+		}
+	}
+}
+
 /* homempage */
 
 header {
@@ -32,6 +60,7 @@ header {
 	border-bottom:1px solid #036bd7;
 	min-height:500px;
 	margin-top:-25px;
+	z-index:1001;
 }
 
 .ask-bubble {
@@ -112,6 +141,13 @@ header {
 		float:right;
 		color:#ccc;
 	}
+	.response-number {
+	/*	width:50px;
+			display:inline-block;*/
+	}
 }
 
-
+/* utility */
+.sm-pad-right {
+	margin-right:8px;
+}
