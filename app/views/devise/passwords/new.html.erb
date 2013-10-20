@@ -1,6 +1,9 @@
 <h2>Forgot your password?</h2>
 <p>It happens to the best of us. Fill out the form below to get instructions on reseting your password. </p>
 
+<div class="row">
+	<div class="col-sm-6">
+
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <div class="form-group">
     <%= f.input :email, :required => true, :autofocus => true, :placeholder => "Enter your email.", :input_html => {:class => "form-control"} %>
@@ -10,3 +13,6 @@
     <%= f.button :submit, "Reset Password", :class => "btn btn-lg btn-primary"%>
   </div>
 <% end %>
+
+	</div>
+</div>
