@@ -9,6 +9,9 @@ class Question < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :body,    :presence => true
   
-  attr_accessible :body
+  accepts_nested_attributes_for :question_options, :allow_destroy => true, 
+                                                   :reject_if     => proc { |attributes| attributes['response_value'].blank? }
   
+  attr_accessible :body,
+                  :question_options_attributes
 end
