@@ -55,6 +55,6 @@ class Poll < ActiveRecord::Base
   end
 
   def to_s
-    self.question.body
+    self.question.try(:body)
   end
 end
