@@ -24,6 +24,6 @@ poll_attributes = {:featured            => true,
                                                                               {:response_value => "PkgHub"},
                                                                               {:response_value => "RubyScore"},
                                                                               {:response_value => "Codepipe"},
-                                                                              {:response_value => "Other"}]}},
+                                                                              {:response_value => "Other"}]}}
 
 user.polls.create!(poll_attributes)
