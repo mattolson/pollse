@@ -180,4 +180,7 @@ header {
 /* utility */
 .sm-pad-right {
 	margin-right:8px;
+
 }
+.poll-active   { border-left: 6px solid #5CB85C; }
+.poll-inactive { border-left: 6px solid #D9534F; }
