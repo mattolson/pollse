@@ -159,7 +159,6 @@ header {
 }
 
 
-
 /* forms */
 
 #poll_question_attributes_body {
@@ -239,3 +238,14 @@ footer {
     text-align: center;
     color: #aaa;
 }
+
+
+/* foot */
+
+.foot {
+	max-width:500px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	margin:auto;
+	}
+
