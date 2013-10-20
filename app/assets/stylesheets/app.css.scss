@@ -18,6 +18,58 @@ div.results {
   text-align: center;
 }
 
+
+/* nav */
+
+
+.simple-nav {
+	padding:5px 0;
+	border-bottom:1px solid #ccc;
+	background:#0b80fa;
+	margin-bottom:30px;
+	.logo {
+		float:left;
+		margin-top:12px;
+	}
+	
+	a {
+		color:#fff;
+		&:hover {
+			color:#abd8f8;
+			text-decoration:none;
+		}
+	}
+	ul {
+		
+	}
+	li {
+		float:right;
+		list-style:none;
+		padding-left:10px;
+		a {
+			margin-top:10px;
+			display:inline-block;
+			font-size:16px;
+			padding:6px;
+			
+		}
+	}
+	li.primary a {
+		border:1px solid #0c549f;
+		background: #0c549f;
+		padding:6px 15px;
+		border-radius:5px;
+		-webkit-border-radius:5px;
+		&:hover {
+			text-decoration:none;
+			color:#fff;
+			background:#35d41f;
+			border:1px solid #188f01;
+		}
+	}
+	
+}
+
 /* homempage */
 
 header {
@@ -29,9 +81,9 @@ header {
 
 .full-width {
 	background:#0b80fa;
-	border-bottom:1px solid #036bd7;
 	min-height:500px;
-	margin-top:-25px;
+	margin-top:-35px;
+	z-index:1001;
 }
 
 .ask-bubble {
@@ -44,7 +96,7 @@ header {
 }
 
 #home .ask-bubble {
-  margin-top: 70px;
+  margin-top: 30px;
 }
 
 .ask-tail {
@@ -58,9 +110,12 @@ header {
 }
 
 .ask-user {
-	margin:70px auto 25px auto;
+	margin:60px auto 40px auto;
+	font-family: 'Roboto Slab', serif;
 	text-align:center;
-	font-size:16px;
+	font-size:20px;
+	color:#fcc324;
+/*	color:#fff;*/
 	a {
 		color: #333;
 		text-decoration:underline;
@@ -75,25 +130,10 @@ header {
 
 .get-started {
 	text-align:center;
-	margin-top:50px;
+	margin-top:40px;
 	h2 {
-		margin-bottom:50px;
-	}
-	a {
-		padding:25px 50px;
-		background:#1ba400;
-		border:4px solid #188203;
-		color:#fff;
-		font-size:32px;
-		border-radius:10px;
-		-webkit-border-radius:10px;
-		&:hover {
-			text-decoration:none;
-			border-color:#1b9603;
-			background:#25cb04;
-		}
-	}
-	
+		margin-bottom:20px;
+	}	
 }
 
 
@@ -109,13 +149,26 @@ header {
 		padding:15px;
 		margin-bottom:2px;
 		background:#fff;
-		font-size:24px;
+		font-size:20px;
 /*		border-bottom:2px solid #f0f0f0;*/
 	}
 	.meta {
 		float:right;
 		color:#ccc;
 	}
+	.response-number {
+	/*	width:50px;
+			display:inline-block;*/
+	}
 }
 
+/* utility */
+.sm-pad-right {
+	margin-right:8px;
 
+}
+.poll-active   { border-left: 6px solid #5CB85C; }
+.poll-inactive { border-left: 6px solid #D9534F; }
+
+.has-voted {color:#5CB85C;}
+.has-not-voted {color:#ddd;}

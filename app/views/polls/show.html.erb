@@ -1,13 +1,42 @@
 <%= render :partial => '/polls/embed', :locals => {:poll => @poll, :response => @response, :cycle_polls => false} %>
 
 <% if @poll.user == current_or_guest_user %>
-  <p>
+  <div class="well well-lg">
     <% if @poll.enabled? %>
-      <%= link_to 'Deactivate', deactivate_poll_path(@poll), :class => 'btn btn-default', :method => :post %>
+        <h2 class="text-center">
+          This poll is currently active.
+        </h2>
+        <h6 class="lead text-center">
+          Click deactivate to stop the poll.
+        </h6>
+        <hr>
+      <p class="text-center">
+        <%= link_to 'Deactivate', deactivate_poll_path(@poll), :class => 'btn btn-lg btn-danger', :method => :post %>
+      </p>
     <% else %>
-      <%= link_to 'Activate', activate_poll_path(@poll), :class => 'btn btn-default', :method => :post %>
+      <% if @poll.user.guest? %>
+        <h2 class="text-center">
+          One last step...
+        </h2>
+        <h6 class="lead text-center">
+          Sign up for a free account to activate this poll.
+        </h6>
+        <hr>
+        <p class="text-center">
+        <%= link_to 'Sign Up', new_user_registration_path, :class => 'btn btn-primary btn-lg' %>
+        </p>
+      <% else %>
+        <h2 class="text-center">
+          This poll is not currently active.
+        </h2>
+        <h6 class="lead text-center">
+          Click activate to make the poll go live.
+        </h6>
+        <hr>
+        <p class="text-center">
+          <%= link_to 'Activate', activate_poll_path(@poll), :class => 'btn btn-success btn-lg', :method => :post %>
+        </p>
+      <% end %>
     <% end %>
-  </p>
+  </div>
 <% end %>
-
-<%= link_to 'Ask a question', new_poll_path, :class => 'btn btn-primary' %>
