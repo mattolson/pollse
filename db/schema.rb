@@ -113,13 +113,11 @@ ActiveRecord::Schema.define(:version => 20131019202452) do
   add_index "question_options", ["question_id"], :name => "index_question_options_on_question_id"
 
   create_table "questions", :force => true do |t|
-    t.integer  "user_id"
     t.text     "body"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
-
-  add_index "questions", ["user_id"], :name => "index_questions_on_user_id"
 
   create_table "responses", :force => true do |t|
     t.integer  "user_id"

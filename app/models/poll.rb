@@ -5,12 +5,12 @@ class Poll < ActiveRecord::Base
   has_many   :responses, :dependent => :destroy
 
   validates  :user_id,        :presence     => true
-  validates  :question_id,    :presence     => true
+  validates  :question,       :presence     => true
   validates  :response_limit, :numericality => {:only_integer => true,
                                                 :greater_than => 0,
                                                 :allow_blank  => true}
   
-  attr_accessible :question_id,
+  attr_accessible :question_attributes,
                   :start_at,
                   :end_at,
                   :response_limit,
@@ -19,6 +19,8 @@ class Poll < ActiveRecord::Base
                   :reveal_results,
                   :vanity,
                   :enabled
+
+  accepts_nested_attributes_for :question
 
   default_scope order('created_at desc')
   scope :active, where(
@@ -44,5 +46,11 @@ class Poll < ActiveRecord::Base
     self.question.question_options.map do |option|
       self.responses.where(:value => option.response_value).count
     end
+  end
+
+  def activate!
+    return if self.enabled
+    PointTransaction.transact!(self.user, :standard_poll) 
+    self.update_attribute(:enabled, true)
   end
 end

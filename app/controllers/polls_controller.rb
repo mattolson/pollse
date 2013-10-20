@@ -1,48 +1,41 @@
 class PollsController < ApplicationController
-  
+  before_filter :authenticate_user!, :only => [:activate, :deactivate]
+
   def index
     @polls = Poll.active
   end
 
   def show
     @poll = Poll.find(params[:id])
+    @response = @poll.responses.build
   end
 
   def new
     @poll = current_or_guest_user.polls.build
+    @poll.build_question
   end
 
-  def edit
-    @poll = current_or_guest_user.polls.find(params[:id])
-  end
-
-  # TODO: Only logged in users can create!
   def create
     @poll = current_or_guest_user.polls.build(params[:poll])
-    
     if @poll.save
-      PointTransaction.transact!(current_or_guest_user, :standard_poll)
-      
+      @poll.activate! if user_signed_in?
       redirect_to @poll, notice: 'Poll was successfully created.'
     else
       render action: "new"
     end
   end
 
-  def update
-    @poll = current_or_guest_user.polls.find(params[:id])
-    
-    if @poll.update_attributes(params[:poll])
-      redirect_to @poll, notice: 'Poll was successfully updated.'
-    else
-      render action: "edit"
-    end
+  # TODO: what if user already deactivated this poll? Should we allow
+  # activation again?
+  def activate
+    @poll = current_user.polls.find(params[:id])
+    @poll.activate!
+    redirect_to @poll, notice: 'OK, your poll has been activated!'
   end
 
-  def destroy
-    @poll = current_or_guest_user.polls.find(params[:id])
-    @poll.destroy
-
-    redirect_to polls_url
+  def deactivate
+    @poll = current_user.polls.find(params[:id])
+    @poll.update_attribute(:enabled, false)
+    redirect_to @poll, notice: 'OK, your poll has been deactivated!'
   end
 end

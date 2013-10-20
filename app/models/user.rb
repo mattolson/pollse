@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   friendly_id :username, :use => :slugged
 
   has_many :responses,          :dependent => :destroy
-  has_many :questions,          :dependent => :destroy
   has_many :polls,              :dependent => :destroy
   has_many :point_transactions, :dependent => :destroy
 
@@ -37,7 +36,6 @@ class User < ActiveRecord::Base
   
   def move_assets_from(old_user)
     Response.where(:user_id => old_user.id).update_all(:user_id => self.id)
-    Question.where(:user_id => old_user.id).update_all(:user_id => self.id)
     Poll.where(    :user_id => old_user.id).update_all(:user_id => self.id)
   end
   
