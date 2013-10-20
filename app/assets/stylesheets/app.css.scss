@@ -14,11 +14,8 @@ h1.question {
   }
 }
 
-p.thanks {
-  font-style: italic;
-  font-size: 1.5em;
-  clear: both;
-  padding-top: 1em;
+div.results {
+  text-align: center;
 }
 
 
@@ -193,3 +190,6 @@ header {
 
 .poll-active   { border-left: 6px solid #5CB85C; }
 .poll-inactive { border-left: 6px solid #D9534F; }
+
+.has-voted {color:#5CB85C;}
+.has-not-voted {color:#ddd;}

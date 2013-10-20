@@ -1,16 +1,21 @@
 <% content_for :onready do %>
 	$('.response-number').tooltip();
 	$('.has-voted').tooltip();
+	$('.has-not-voted').tooltip();
 	
 <% end %>
 
-<h1>All Open Polls</h1>
+<h1>Open Questions</h1>
 <div class="big-list">
 	<ul>
 	  <% @polls.each do |p| %>
 	    <li>
 				<div class="meta">
-					<span class="glyphicon glyphicon-ok has-voted" data-toggle="tooltip" title="Answered"></span> &nbsp;&nbsp;
+          <% if current_or_guest_user.answered? p %>
+            <span class="glyphicon glyphicon-ok has-voted" data-toggle="tooltip" title="Answered"></span> &nbsp;&nbsp;
+          <% else %>
+            <span class="glyphicon glyphicon-ok has-not-voted" data-toggle="tooltip" title="Unanswered"></span> &nbsp;&nbsp;
+          <% end %>
 					<span class="glyphicon glyphicon-signal response-number" data-toggle="tooltip" title="<%= p.responses.size %> Responses"><span style="width:5px;display:inline-block;"></span><%= p.responses.size %></span> 
 				</div>
 				<%= link_to p, p %>

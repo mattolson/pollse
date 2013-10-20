@@ -1,10 +1,14 @@
+<% content_for :onready do %>
+  $('.response-number').tooltip();
+<% end %>
+
 <div class="row">
   <div class="col-md-3">
     <p> <%= gravatar_for(@user, 125) %> </p>
     <h3><%= @user.username %></h3>
     <p>
     <% if @user == current_user %>
-      <%= link_to "<i class='glyphicon glyphicon-cog'></i> Edit Account".html_safe, edit_user_registration_path(current_user), :class => "btn btn-default" %>
+      <%= link_to "<i class='glyphicon glyphicon-cog'></i> Edit Account".html_safe, edit_user_registration_path, :class => "btn btn-default" %>
     <% end %>
     </p>
   </div>
@@ -17,7 +21,9 @@
           <% else %>
             <li>
           <% end %>
-          <span class="meta"><%= p.responses.size %> Responses</span>
+          <span class="meta">
+            <span class="glyphicon glyphicon-signal response-number" data-toggle="tooltip" title="<%= p.responses.size %> Responses"><span style="width:5px;display:inline-block;"></span><%= p.responses.size %></span> 
+          </span>
           <%= link_to p, p %>
           </li>
         <% end %>

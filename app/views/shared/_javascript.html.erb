@@ -6,7 +6,7 @@
   $(document).ready(function () {
     <%= yield :onready %>
 
-    $('div.poll').on('change', 'input[type="radio"]', function(e) {
+    $('div.polling').on('change', 'input[type="radio"]', function(e) {
       $('#new_response').submit();
       e.preventDefault();
     });
