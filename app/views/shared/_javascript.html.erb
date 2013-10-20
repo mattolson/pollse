@@ -6,9 +6,8 @@
   $(document).ready(function () {
     <%= yield :onready %>
 
-    $('div.poll').on('click', 'a.answer', function(e) {
-      $('#response_value').val($(this).data('value'));
-      $('#new_response').trigger('submit.rails');
+    $('div.poll').on('change', 'input[type="radio"]', function(e) {
+      $('#new_response').submit();
       e.preventDefault();
     });
   });
