@@ -6,6 +6,7 @@ Category.find_or_create_by_name("Food")
 
 user = User.create!(
   :email => 'admin@pollse.com',
+  :username => 'Rails Rumble',
   :password => 'admin1234',
   :password_confirmation => 'admin1234'
 )
