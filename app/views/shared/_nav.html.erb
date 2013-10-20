@@ -18,8 +18,8 @@
 					<li>
 						<%= link_to "", destroy_user_session_path, :method => :delete, :class => "glyphicon glyphicon-log-out" %>
 	        </li>						<li>
-							<%= link_to user_path(current_user) do %>
-			          <%= current_or_guest_user.email %>!
+          <%= link_to user_path(current_user), :style => "padding-top: 0px;" do %>
+			          <%= gravatar_for(current_or_guest_user, 36) %> Me
 							<% end %>
 						</li>
 

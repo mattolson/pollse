@@ -12,8 +12,12 @@
     <div class="big-list">
       <ul>
         <% @polls.each do |p| %>
-          <li>
-          <span class="meta"><%= p.responses.size %> Responsess</span>
+          <% if p.user == current_user %>
+            <li class="poll-<%= p.active? ? "active" : "inactive" %>">
+          <% else %>
+            <li>
+          <% end %>
+          <span class="meta"><%= p.responses.size %> Responses</span>
           <%= link_to p, p %>
           </li>
         <% end %>
