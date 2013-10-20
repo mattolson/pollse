@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
   # creating one as needed
   def guest_user
     @cached_guest_user ||= User.find(session[:guest_user_id] ||= create_guest_user.id)
-
   rescue ActiveRecord::RecordNotFound # if session[:guest_user_id] invalid
     session[:guest_user_id] = nil
     guest_user
@@ -48,7 +47,7 @@ class ApplicationController < ActionController::Base
   # called (once) when the user logs in, insert any code your application needs
   # to hand off from guest_user to current_user.
   def logging_in
-    # TODO
+    current_user.move_assets_from(guest_user)
   end
 
   def create_guest_user

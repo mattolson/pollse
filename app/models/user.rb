@@ -35,6 +35,12 @@ class User < ActiveRecord::Base
     self.responses.where(:poll_id => poll.id).count > 0
   end
   
+  def move_assets_from(old_user)
+    Response.where(:user_id => old_user.id).update_all(:user_id => self.id)
+    Question.where(:user_id => old_user.id).update_all(:user_id => self.id)
+    Poll.where(    :user_id => old_user.id).update_all(:user_id => self.id)
+  end
+  
   def to_s
     username || email
   end
