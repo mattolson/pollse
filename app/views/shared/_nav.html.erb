@@ -3,7 +3,11 @@
   <div class="row">
     <div class="col-sm-12">
       <div class="logo">
-        	<%= link_to(image_tag("pollse_logo3.png", :alt => "Pollse"), root_url) %>
+      <%= link_to root_url do %>
+        <h2 class="main-title">
+          <%= image_tag 'logo.png', :class => "brand" %>
+          Pollse</h2>
+      <% end %>
       </div>
 
         <ul class="pull-right">

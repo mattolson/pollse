@@ -2,6 +2,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Slab', serif;
 }
 
+.main-title { margin:0; display: inline;}
+.brand {max-width: 40px; display:inline;margin-top: 0!important;}
+
 h1.question {
   font-size: 48px;
   text-align: center;
