@@ -1,22 +1,30 @@
 <div class="full-width">
   <div class="container">
 
-		<div class="row">
+    <% if flash[:notice] %>
+      <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="alert alert-danger"><%= flash[:alert] %></div>
+    <% end %>
+
+    <div class="row">
       <div class="col-sm-12">
         <%= render :partial => '/polls/embed', :locals => {:poll => @featured_poll, :response => @response, :cycle_polls => true} %>
       </div>
-     </div>
+    </div>
 
-   </div>
+  </div>
 </div>
 
 <div class="container">	
-	<div class="row">
+  <div class="row">
     <div class="col-sm-12">
-			<div class="get-started">
-				<h2>Got a burning question? Silly or serious.<br /> Use Pollse to ask people what they think!</h2>
-				<%= link_to "Create A Poll", new_poll_path, :class => "btn btn-success btn-mega" %> 
-			</div>
-     </div>
-   </div>
+      <div class="get-started">
+        <h2>Got a burning question? Silly or serious.<br /> Use Pollse to ask people what they think!</h2>
+        <%= link_to "Create A Poll", new_poll_path, :class => "btn btn-success btn-mega" %> 
+      </div>
+    </div>
+  </div>
 </div>
