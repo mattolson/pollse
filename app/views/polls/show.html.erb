@@ -3,11 +3,9 @@
 <% if @poll.user == current_or_guest_user %>
   <p>
     <% if @poll.enabled? %>
-      <%= link_to 'Deactivate', deactivate_poll_path(@poll), :class => 'btn btn-default', :method => :post %>
+      <%= link_to 'Deactivate', deactivate_poll_path(@poll), :class => 'btn btn-danger', :method => :post %>
     <% else %>
-      <%= link_to 'Activate', activate_poll_path(@poll), :class => 'btn btn-default', :method => :post %>
+      <%= link_to 'Activate', activate_poll_path(@poll), :class => 'btn btn-success', :method => :post %>
     <% end %>
   </p>
 <% end %>
-
-<%= link_to 'Ask a question', new_poll_path, :class => 'btn btn-primary' %>
