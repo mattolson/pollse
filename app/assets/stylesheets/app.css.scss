@@ -4,11 +4,14 @@ h1, h2, h3, h4, h5, h6 {
 
 h1.question {
   font-size: 48px;
-  margin-bottom: 1em;
+  text-align: center;
 }
 
-div.poll {
+#new_response {
   text-align: center;
+  div.poll {
+    margin-top: 1em;
+  }
 }
 
 p.thanks {
@@ -37,10 +40,14 @@ header {
 .ask-bubble {
 	position:relative;
 	background:#fff;
-	margin:70px 0 50px 0;
+	margin-bottom: 30px;
 	padding:30px 60px;
 	border-radius:40px;
 	-webkit-border-radius:40px;
+}
+
+#home .ask-bubble {
+  margin-top: 70px;
 }
 
 .ask-tail {
@@ -58,7 +65,7 @@ header {
 	text-align:center;
 	font-size:16px;
 	a {
-		color:#a8d1ff;
+		color: #333;
 		text-decoration:underline;
 	}
 	img {

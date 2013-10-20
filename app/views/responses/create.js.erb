@@ -1,4 +1,4 @@
-$('#new_response').fadeOut('fast', function() {
+$('#poll_<%= @response.poll.id %>').fadeOut('fast', function() {
   $("#poll_results_<%= @response.poll.id %>").html("<%=j render :partial => '/polls/results', :locals => {:poll => @response.poll} %>");
   $("#poll_results_<%= @response.poll.id %>").fadeIn('fast');
 });
