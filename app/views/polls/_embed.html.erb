@@ -14,5 +14,5 @@
 
   <div id="poll_results_<%= poll.id %>"></div>
 <% else %>
-  <%= render :partial => 'results', :locals => {:poll => poll} %>
+  <%= render :partial => '/polls/results', :locals => {:poll => poll} %>
 <% end %>
