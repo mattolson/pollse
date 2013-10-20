@@ -3,24 +3,9 @@
 
 		<div class="row">
         <div class="col-sm-12">
-					<div class="ask-bubble">
-						<span class="ask-tail"></span>
-						<h1>Who would win in a fight between a taco and a grilled cheese sandwich?</h1>
-						<form>
-							<input id="age_child" name="age" type="radio" value="child" />
-							<label for="age_child">Grilled Cheese Sandwhich</label>
-							<br />
-							<input id="age_adult" name="age" type="radio" value="adult" />
-							<label for="age_adult">Taco</label>
-							<br />
-							<input id="age_adult" name="age" type="radio" value="adult" />
-							<label for="age_adult">Draw</label>
-						</form>
-					</div>
-					<div class="ask-user">
-						<%= image_tag("avatar_placeholder.png", :alt => "avatar") %>
-						<strong><%= link_to "TheBigCheese", "" %></strong> wants to know
-					</div>
+          <% if @featured_poll %>
+            <%= render :partial => '/polls/embed', :locals => {:poll => @featured_poll, :response => @response} %>
+          <% end %>
       </div>
      </div>
 
