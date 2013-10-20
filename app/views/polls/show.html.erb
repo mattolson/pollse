@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <%= render :partial => '/polls/embed', :locals => {:poll => @poll, :response => @response} %>
 
 <% if @poll.user == current_or_guest_user %>
