@@ -24,7 +24,6 @@ div.results {
 
 /* nav */
 
-
 .simple-nav {
 	padding:5px 0;
 	border-bottom:1px solid #ccc;
@@ -138,6 +137,28 @@ header {
 		margin-bottom:20px;
 	}	
 }
+
+/* about */
+.team-member {
+	clear:both;
+	border-bottom:1px dotted #ccc;
+	padding-bottom:25px;
+	padding-top:15px;
+	
+	.member-info {
+		padding-left:20px;
+		float:left; 
+		width:80%;
+	}
+	.profile-link {
+		font-size:16px;
+	}
+	h3 {
+		margin-top:0;
+	}
+}
+
+
 
 /* forms */
 

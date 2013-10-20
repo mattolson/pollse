@@ -10,34 +10,59 @@
 
 <h2>The Team</h2>
 
-<h4>Patrick Edelman</h4>
-<p>
-  <%= gravatar_for(@pat, 75) %>
-  A Computer Science major at CSU Chico. Asker of questions, drinker of craft beer. Has too much fun coding and working on startups.
-</p>
-<%= link_to "Patrick's Questions", @pat %>
 
-<h4>Chris Morris</h4>
-<p>
-  <%= gravatar_for(@chris, 75) %>
-  As a teacher, Chris gets a lot of questions.  He is hopeful that his students will start using this site instead of sending him email!
-</p>
-<%= link_to "Chris's Questions", @chris %>
+<div class="team-member clearfix" style="margin-top:20px;">
+	<div class="pull-left"><%= gravatar_for(@pat, 75) %></div>
+	<div class="member-info">
+	<h3>Patrick Edelman</h3>
+	<p>
+	  A Computer Science major at CSU Chico. Asker of questions, drinker of craft beer. Has too much fun coding and working on startups.
+	</p>
+  <%= link_to "Patrick's Questions", @pat, :class => "profile-link" %>
+	</div>
+</div>
 
-<h4>Matt Olson</h4>
-<p>
-    <%= gravatar_for(@matt, 75) %>
-    A recent transplant from SF to Chico. Software engineer, entrepreneur, cyclotourist, and geek dad.</p>
-<p>Blog: <%= link_to 'Capital Ideas', 'http://mattolson.com' %>, Twitter: <%= link_to '@ahbiscuits', 'http://twitter.com/ahbiscuits' %></p>
+<div class="team-member clearfix" style="margin-top:20px;">
+	<div class="pull-left"><%= gravatar_for(@chris, 75) %></div>
+	<div class="member-info">
+	<h3>Chris Morris</h3>
+	<p>
+		As a teacher, Chris gets a lot of questions.  He is hopeful that his students will start using this site instead of sending him email!
+	</p>
+	<%= link_to "Chris's Questions", @chris %>
+	</div>
+</div>
 
-<%= link_to "Matt's Questions", @matt %>
 
-<h4>Mark Weiss</h4>
-<p>
-  <%= gravatar_for(@mark, 75) %>
-  As a designer/developer, Mark tries to make the web a more beautiful and enjoyable place to be. Find him on Medium <a href="https://medium.com/@markweiss">@markweiss</a>.  
-</p>
-<%= link_to "Mark's Questions", @mark %>
+<div class="team-member clearfix" style="margin-top:20px;">
+	<div class="pull-left"> <%= gravatar_for(@matt, 75) %></div>
+	<div class="member-info">
+	<h3>Matt Olson</h3>
+	<p>
+		    A recent transplant from SF to Chico. Software engineer, entrepreneur, cyclotourist, and geek dad.</p>
+		<p>Blog: <%= link_to 'Capital Ideas', 'http://mattolson.com' %>, Twitter: <%= link_to '@ahbiscuits', 'http://twitter.com/ahbiscuits' %></p>
+	</p>
+	<%= link_to "Matt's Questions", @matt %>
+	</div>
+</div>
+
+
+<div class="team-member clearfix" style="margin-top:20px;">
+	<div class="pull-left"><%= gravatar_for(@mark, 75) %></div>
+	<div class="member-info">
+	<h3>Mark Weiss</h3>
+	<p>
+
+	  As a designer/developer, Mark tries to make the web a more enjoyable place to be. Find him on Medium <a href="https://medium.com/@markweiss">@markweiss</a>.  
+	</p>
+		<%= link_to "Mark's Questions", @mark %>
+	</div>
+</div>
+
+
+
+
+
 
 <br />
 
