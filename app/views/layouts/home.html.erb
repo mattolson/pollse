@@ -1,26 +1,16 @@
 <!DOCTYPE html>
 <html>
-
   <%= render :partial => '/shared/head' %>
 
   <body id="home">
-		<%= render :partial => '/shared/nav' %>
-		
+    <%= render :partial => '/shared/nav' %>
 
     <%= yield :before_page %>
 
-          <% if flash[:notice] %>
-          <div class="alert alert-success"><%= flash[:notice] %></div>
-          <% end %>
-    
-          <% if flash[:alert] %>
-          <div class="alert alert-danger"><%= flash[:alert] %></div>
-          <% end %>
-          <%= yield %>
-    
+    <%= yield %>
+
     <%= yield :after_page %>
 
     <%= render :partial => '/shared/javascript' %>
-
   </body>
 </html>
