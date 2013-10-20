@@ -1,3 +1,7 @@
+<% content_for :styles do %>
+  h4 { margin-top: 2em; }
+<% end %>
+
 <h1>About Pollse</h1>
 
 <p>Have you ever wondered which is more popular--boxers or briefs? Now you can find out, and much more. We have made it simple to create and share polls about anything and everything. Get on it!  Ask a question today!</p>
@@ -23,12 +27,15 @@
 <h4>Matt Olson</h4>
 <p>
     <%= gravatar_for(@matt, 75) %>
-</p>
+    A recent transplant from SF to Chico. Software engineer, entrepreneur, cyclotourist, and geek dad.</p>
+<p>Blog: <%= link_to 'Capital Ideas', 'http://mattolson.com' %>, Twitter: <%= link_to '@ahbiscuits', 'http://twitter.com/ahbiscuits' %></p>
+
 <%= link_to "Matt's Questions", @matt %>
 
 <h4>Mark Weiss</h4>
 <p>
   <%= gravatar_for(@mark, 75) %>
+  As a designer/developer, Mark tries to make the web a more beautiful and enjoyable place to be. Find him on Medium <a href="https://medium.com/@markweiss">@markweiss</a>.  
 </p>
 <%= link_to "Mark's Questions", @mark %>
 
