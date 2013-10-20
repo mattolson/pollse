@@ -2,10 +2,6 @@
   <div class="col-md-3">
     <%= gravatar_for(@user) %>
     <h3><%= @user.username %></h3>
-    <dl>
-      <dt>My Points</dt>
-      <dd><%= @user.points %></dd>
-    </dl>
   </div>
   <div class="col-md-9">
     <% if @featured_poll %>
