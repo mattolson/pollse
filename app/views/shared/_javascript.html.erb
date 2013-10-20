@@ -1,4 +1,17 @@
 <script src="//code.jquery.com/jquery.js"></script>
+
+<script>
+  var rumbleBannerBackgroundColor, rumbleBannerTextColor, rumbleBannerLinkColor, rumbleBannerPlacement;
+  rumbleBannerPlacement = "bottom";
+</script>
+
+<!-- remove this after the banner is no longer needed -->
+<style>
+  #rumble2013 {
+    font-size:20px;
+  }
+</style>
+
 <script src="http://s0.railsrumble.com/banner.js" type="text/javascript"></script>
 <%= javascript_include_tag "application" %>
 <%= yield :javascripts %>
