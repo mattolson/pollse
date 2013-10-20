@@ -18,7 +18,7 @@ p.thanks {
   padding-top: 1em;
 }
 
-/* homem page */
+/* homempage */
 
 header {
 	height:100px;
@@ -31,6 +31,7 @@ header {
 	background:#0b80fa;
 	border-bottom:1px solid #036bd7;
 	min-height:500px;
+	margin-top:-25px;
 }
 
 .ask-bubble {
@@ -92,14 +93,25 @@ header {
 }
 
 
-	.featured-poll {
-		height:300px;
-		background:#fcfcfc;
-	}
+/* polls index */
 
-	.start {
-		text-align:center;
-		margin:75px auto 100px auto;
+.big-list {
+	ul {
+		margin:0;
+		padding:0;
 	}
+	li {
+		list-style:none;
+		padding:15px;
+		margin-bottom:2px;
+		background:#fff;
+		font-size:24px;
+/*		border-bottom:2px solid #f0f0f0;*/
+	}
+	.meta {
+		float:right;
+		color:#ccc;
+	}
+}
 
 
