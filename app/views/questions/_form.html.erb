@@ -1,4 +1,4 @@
-<%= simple_form_for(@question) do |f| %>
+<%= simple_nested_form_for(@question) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -14,6 +14,18 @@
   <div class="form-group">
     <%= f.input :body, :input_html => {:class => "form-control", :rows => 6} %>
   </div>
+  
+  <%= f.fields_for :question_options do |question_option| %>
+    <%= question_option.text_field :response_value %>
+    <%= question_option.link_to_remove :class => "text-danger" do %>
+      <i class="glyphicon glyphicon-remove"></i>
+    <% end %>
+  <% end %>
+  <p><%= f.link_to_add :question_options, :class => "btn btn-sm btn-primary" do %>
+    <i class="glyphicon glyphicon-plus-sign"></i> Add a Response
+    <% end %>
+  </p>
+  
   <div class="actions">
     <%= f.submit "Step 2", :class => "btn btn-success" %>
   </div>

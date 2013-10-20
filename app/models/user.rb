@@ -34,4 +34,8 @@ class User < ActiveRecord::Base
   def answered?(poll)
     self.responses.where(:poll_id => poll.id).count > 0
   end
+  
+  def to_s
+    username || email
+  end
 end
