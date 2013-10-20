@@ -5,7 +5,7 @@
   </div>
   <div class="col-md-9">
     <% if @featured_poll %>
-      <%= render :partial => '/polls/embed', :locals => {:poll => @featured_poll, :response => @response} %>
+      <%= render :partial => '/polls/embed', :locals => {:poll => @featured_poll, :response => @response, :cycle_polls => nil} %>
     <% end %>
   </div>
 </div>

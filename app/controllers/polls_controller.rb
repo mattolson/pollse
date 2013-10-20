@@ -10,6 +10,16 @@ class PollsController < ApplicationController
     @response = @poll.responses.build
   end
 
+  # Return the next featured poll that the user hasn't already answered
+  def next
+    @poll = Poll.where(:featured => true).order('created_at desc').select do |poll|
+      !current_or_guest_user.answered?(poll)
+    end.compact.first
+    if @poll
+      @response = @poll.responses.build
+    end
+  end
+
   def new
     @poll = current_or_guest_user.polls.build
     @poll.build_question
