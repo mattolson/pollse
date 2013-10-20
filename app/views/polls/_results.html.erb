@@ -1,34 +1,35 @@
 <h1 class="question"><%= poll.question.body %></h1>
 <div class="results">
-  <div class="graph" id="results_graph_<%= poll.id %>"></div>
-  <div class="legend" id="legend_<%= poll.id %>"></div>
+  <canvas id="results_graph_<%= poll.id %>" width="600" height="400"></canvas>
 </div>
 <p class="thanks">Thanks for voting!</p>
 
 <script>
-  var palette = new Rickshaw.Color.Palette();
   var response_values = <%= poll.question.question_options.map(&:response_value).to_json.html_safe %>;
   var metrics = <%= poll.metrics.to_json.html_safe %>;
-  var series = [];
+  var maxVal = 0;
   for (var i = 0; i < metrics.length; i++) {
-    series.push({
-      name: metrics[i].question,
-      data: [{x: 0, y: metrics[i].count}],
-      color: palette.color()
-    });
+    if (metrics[i] > maxVal)
+      maxVal = metrics[i];
   }
 
-  var graph = new Rickshaw.Graph({
-    element: document.querySelector("#results_graph_<%= poll.id %>"),
-    renderer: 'bar',
-    series: series
-  });
+  var data = {
+    labels: response_values,
+    datasets: [{
+      fillColor : "rgba(151,187,205,0.5)",
+      strokeColor : "rgba(151,187,205,1)",
+      data: metrics
+    }]
+  }
 
-  graph.renderer.unstack = true;
-  graph.render();
-
-  var legend = new Rickshaw.Graph.Legend({
-    graph: graph,
-    element: document.querySelector('#legend_<%= poll.id %>')
+  var ctx = document.getElementById("results_graph_<%= poll.id %>").getContext("2d");
+  var chart = new Chart(ctx).Bar(data, {
+    scaleOverride: true,
+    scaleSteps: 5,
+    scaleStartValue: 0,
+    scaleStepWidth: (5 * Math.round(maxVal/5)) / 5,
+    scaleShowGridLines: false,
+    scaleFontFamily: 'Verdana',
+    scaleFontSize: 13
   });
 </script>
