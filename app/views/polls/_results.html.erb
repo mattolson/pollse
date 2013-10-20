@@ -36,12 +36,20 @@
       });
     </script>
   <% else %>
-    <p>We haven't received any responses yet.</p>
-    <ul>
-      <% @poll.question.question_options.each do |option| %>
-        <li><%= option %></li>
-      <% end %>
-    </ul>
+    <form class="text-center">
+      <div class="poll btn-group btn-group-vertical" data-toggle="buttons">
+        <% poll.question.question_options.map(&:response_value).each do |option| %>
+          <label class="btn btn-default">
+            <input class="radio_buttons required" id="response_value_<%= option.downcase.underscore %>" name="response[value]" type="radio" value="<%= option %>"/>
+            <%= option %>
+          </label>
+        <% end %>
+      </div>
+    </form>
+    <hr>
+    <p class="lead text-center">
+      Looks like this poll has not been answered yet.
+    </p>
   <% end %>
 </div>
 <div class="ask-user">
