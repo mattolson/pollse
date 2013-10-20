@@ -10,6 +10,7 @@ Pollse::Application.routes.draw do
   match 'privacy' => 'static_pages#privacy'
 
   resources :polls, :except => [:edit, :update, :destroy] do
+    get :next, :on => :collection
     member do
       post :activate
       post :deactivate

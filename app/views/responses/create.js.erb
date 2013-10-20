@@ -1,4 +1,6 @@
-$('#new_response').fadeOut('fast', function() {
-  $("#poll_results_<%= @response.poll.id %>").html("<%=j render :partial => '/polls/results', :locals => {:poll => @response.poll} %>");
+$('#poll_<%= @response.poll.id %>').fadeOut('fast', function() {
+  $("#poll_results_placeholder").replaceWith("<%=j render :partial => '/polls/results', :locals => {:poll => @response.poll, :cycle_polls => @cycle_polls} %>");
   $("#poll_results_<%= @response.poll.id %>").fadeIn('fast');
+  $('#poll_<%= @response.poll.id %>').remove();
+  window.scrollTo(0, 0);
 });

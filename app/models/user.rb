@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :polls,              :dependent => :destroy
   has_many :point_transactions, :dependent => :destroy
 
+  validates_presence_of :username
+
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
   

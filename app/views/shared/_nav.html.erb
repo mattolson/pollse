@@ -1,20 +1,17 @@
-<nav class="navbar" role="navigation">
+<nav class="simple-nav" role="navigation">
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      <div class="navbar-header">
-        	<%= link_to(image_tag("pollse_logo3.png", :alt => "Pollse"), root_url, :class => "navbar-brand") %>
+      <div class="logo">
+      <%= link_to root_url do %>
+        <h2 class="main-title">
+          <%= image_tag 'logo.png', :class => "brand" %>
+          Pollse</h2>
+      <% end %>
       </div>
 
-      <div class="collapse navbar-collapse navbar-ex8-collapse">
-        <ul class="nav navbar-nav navbar-right">
-         <li>
-						 <%= link_to "New Poll", new_poll_path %>
-		      </li>
-		      <li>
-			      <%= link_to "View Polls", polls_path %>
-		       </li>
-		 		  	<% if current_or_guest_user.guest? %>
+        <ul class="pull-right">
+ 		 		  	<% if current_or_guest_user.guest? %>
           	  <li>
 	            	<%= link_to 'Sign Up', new_user_registration_path %>
 	            </li>
@@ -22,17 +19,24 @@
 	            	<%= link_to 'Sign In', new_user_session_path %>
 	            </li>
           <% else %>
-						<li>
-							<%= link_to user_path(current_user) do %>
-			          <%= current_or_guest_user.email %>!
+					<li>
+						<%= link_to "", destroy_user_session_path, :method => :delete, :class => "glyphicon glyphicon-log-out" %>
+	        </li>						<li>
+          <%= link_to user_path(current_user), :style => "padding-top: 0px;" do %>
+			          <%= gravatar_for(current_or_guest_user, 36) %> Me
 							<% end %>
 						</li>
-						<li>
-							<%= link_to "Sign Out", destroy_user_session_path, :class => "menuitem", :method => :delete %>
-		        </li>
+
 		      <% end %>
+		      <li class="primary">
+			      <%= link_to "Answer", polls_path %>
+		       </li>
+		      <li class="primary">
+							 <%= link_to "Ask", new_poll_path %>
+			      </li>
+
+	  
         </ul>
-      </div>
     </div>
   </div>
 </div>

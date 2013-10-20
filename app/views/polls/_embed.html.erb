@@ -1,18 +1,7 @@
-<h1 class="question"><%= poll.question.body %></h1>
-
-<% if current_or_guest_user != poll.user && !current_or_guest_user.answered?(poll) %>
-  <%= simple_form_for response, :url => poll_responses_path(poll), :remote => true do |f| %>
-    <%= f.input :value, :as => :hidden %>
-    <div class="poll">
-      <div id="answers" class="btn-group-lg btn-group-vertical">
-        <% poll.question.question_options.map(&:response_value).each do |option| %>
-          <a class="btn btn-default answer" data-value="<%= option %>"><%= option %></a>
-        <% end %>
-      </div>
-    </div>
+<div class="polling">
+  <% if poll.nil? || (current_or_guest_user != poll.user && !current_or_guest_user.answered?(poll)) %>
+    <%= render :partial => '/polls/vote', :locals => {:response => response, :poll => poll, :cycle_polls => cycle_polls} %>
+  <% else %>
+    <%= render :partial => '/polls/results', :locals => {:poll => poll, :cycle_polls => cycle_polls} %>
   <% end %>
-
-  <div id="poll_results_<%= poll.id %>"></div>
-<% else %>
-  <%= render :partial => '/polls/results', :locals => {:poll => poll} %>
-<% end %>
+</div>

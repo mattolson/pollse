@@ -1,7 +1,7 @@
 <%= simple_nested_form_for(@poll) do |f| %>
   <% if @poll.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@poll.errors.count, "error") %> prohibited this poll from being saved:</h2>`
+    <div id="error_explanation" class="alert alert-danger">
+      <h4><%= pluralize(@poll.errors.count, "error") %> prohibited this poll from being saved:</h4>
       <ul>
         <% @poll.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
@@ -12,58 +12,27 @@
 
   <%= f.simple_fields_for :question do |q| %>
     <div class="form-group">
-      <%= q.input :body, :input_html => {:class => "form-control", :rows => 6} %>
+      <%= q.input :body, :input_html => {:class => "form-control", :rows => 3}, :label => false, :placeholder => "Enter your question here." %>
     </div>
     
     <%= q.simple_fields_for :question_options do |question_option| %>
-      <%= question_option.text_field :response_value %>
-      <%= question_option.link_to_remove :class => "text-danger" do %>
-        <i class="glyphicon glyphicon-remove"></i>
-      <% end %>
+      <div class="input-group">
+        <%= question_option.text_field :response_value, :class => "form-control new-question-form", :placeholder => "Enter one of the question answers here." %>
+        <span class="input-group-btn">
+          <%= question_option.link_to_remove :class => "btn btn-danger text-danger" do %>
+            <i class="glyphicon glyphicon-remove"></i>
+          <% end %>
+        </span>
+      </div>
+      <br>
     <% end %>
-    <p><%= q.link_to_add :question_options, :class => "btn btn-sm btn-primary" do %>
+
+    <p><%= q.link_to_add :question_options, :class => "btn btn-sm btn-default" do %>
       <i class="glyphicon glyphicon-plus-sign"></i> Add a Response
       <% end %>
     </p>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :start_at %><br />
-    <%= f.datetime_select :start_at, :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :end_at %><br />
-    <%= f.datetime_select :end_at, :include_blank => true %>
-  </div>
-  <div class="form-group">
-    <%= f.label :response_limit %><br />
-    <%= f.number_field :response_limit, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :featured do %>
-      <%= f.check_box :featured %>
-      Featured
-    <% end %>
-  </div>
-  <div class="form-group">
-    <%= f.label :distribute do %>
-      <%= f.check_box :distribute %>
-      Distributed
-    <% end %>
-  </div>
-  <div class="form-group">
-    <%= f.label :vanity do %>
-      <%= f.check_box :vanity %>
-      Vanity
-    <% end %>
-  </div>
-  <div class="form-group">
-    <%= f.label :reveal_results do %>
-      <%= f.check_box :reveal_results %>
-      Make Visible
-    <% end %>
-  </div>
-  <div class="actions">
-    <%= f.submit "Create Question", :class => "btn btn-default" %>
+  <div class="actions vspace-med">
+    <%= f.submit "Create Question", :class => "btn btn-lg btn-success" %>
   </div>
 <% end %>

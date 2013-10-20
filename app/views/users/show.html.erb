@@ -1,11 +1,33 @@
+<% content_for :onready do %>
+  $('.response-number').tooltip();
+<% end %>
+
 <div class="row">
   <div class="col-md-3">
-    <%= gravatar_for(@user) %>
+    <p> <%= gravatar_for(@user, 125) %> </p>
     <h3><%= @user.username %></h3>
+    <p>
+    <% if @user == current_user %>
+      <%= link_to "<i class='glyphicon glyphicon-cog'></i> Edit Account".html_safe, edit_user_registration_path, :class => "btn btn-default" %>
+    <% end %>
+    </p>
   </div>
   <div class="col-md-9">
-    <% if @featured_poll %>
-      <%= render :partial => '/polls/embed', :locals => {:poll => @featured_poll, :response => @response} %>
-    <% end %>
+    <div class="big-list">
+      <ul>
+        <% @polls.each do |p| %>
+          <% if p.user == current_user %>
+            <li class="poll-<%= p.active? ? "active" : "inactive" %>">
+          <% else %>
+            <li>
+          <% end %>
+          <span class="meta">
+            <span class="glyphicon glyphicon-signal response-number" data-toggle="tooltip" title="<%= p.responses.size %> Responses"><span style="width:5px;display:inline-block;"></span><%= p.responses.size %></span> 
+          </span>
+          <%= link_to p, p %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
