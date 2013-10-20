@@ -23,9 +23,9 @@
 	            </li>
           <% else %>
 						<li>
-							<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
-			          Hi, <%= current_or_guest_user.email %>!
-			         </a>            
+							<%= link_to user_path(current_user) do %>
+			          <%= current_or_guest_user.email %>!
+							<% end %>
 						</li>
 						<li>
 							<%= link_to "Sign Out", destroy_user_session_path, :class => "menuitem", :method => :delete %>
