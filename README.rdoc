@@ -1,18 +1,18 @@
 == Pollse
 
-This was our submission to RailsRumble 2013. The four of us came up with the idea, designed, and built it
-in 48 hours. Some of the code is a little rough around the edges, but we're pretty happy with how it turned
-out.
+This was our submission to {Rails Rumble 2013}[http://railsrumble.com]. The four of us came up with the 
+idea, designed, and built it in 48 hours. Some of the code is a little rough around the edges, but we're 
+pretty happy with how it turned out.
 
 It's a simple polling app that allows you to submit a multiple-choice question to the world and collect replies.
 End users have a nice simple experience answering one question after another in an engaging way.
 
 === Authors
 
-* {Matt Olson}http:/github.com/mattolson]
-* {Patrick Edelman}http://github.com/pedelman]
-* {Chris Morris}http://github.com/hitsvilleusa]
-* {Mark Weiss}http://github.com/theMark]
+* {Matt Olson}[http:/github.com/mattolson]
+* {Patrick Edelman}[http://github.com/pedelman]
+* {Chris Morris}[http://github.com/hitsvilleusa]
+* {Mark Weiss}[http://github.com/theMark]
 
 === Thanks
 
