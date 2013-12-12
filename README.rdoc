@@ -8,7 +8,12 @@ It's a simple polling app that allows you to submit a multiple-choice question t
 End users have a nice simple experience answering one question after another in an engaging way.
 
 === Authors
-* "Matt Olson"[http:/github.com/mattolson]
-* "Patrick Edelman"[http://github.com/pedelman]
-* "Chris Morris"[http://github.com/hitsvilleusa]
-* "Mark Weiss"[http://github.com/theMark]
+
+* {Matt Olson}http:/github.com/mattolson]
+* {Patrick Edelman}http://github.com/pedelman]
+* {Chris Morris}http://github.com/hitsvilleusa]
+* {Mark Weiss}http://github.com/theMark]
+
+=== Thanks
+
+* Big thanks to {Chico Start}[http://chicostart.com] for hosting us during the event.
